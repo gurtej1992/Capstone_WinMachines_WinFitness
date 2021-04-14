@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783E82627740D00D003BB /* WelcomeVC.swift */; };
 		91B783EC26277FC500D003BB /* RestScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783EB26277FC500D003BB /* RestScreenVC.swift */; };
+		91B783F12627A68C00D003BB /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783F02627A68C00D003BB /* LoginVC.swift */; };
 		B737919C26257612003BF61C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737919B26257612003BF61C /* AppDelegate.swift */; };
 		B737919E26257612003BF61C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737919D26257612003BF61C /* SceneDelegate.swift */; };
 		B73791A026257612003BF61C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737919F26257612003BF61C /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		91B783E82627740D00D003BB /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		91B783EB26277FC500D003BB /* RestScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestScreenVC.swift; sourceTree = "<group>"; };
+		91B783F02627A68C00D003BB /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B737919826257612003BF61C /* Capstone_WinMachines_WinFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone_WinMachines_WinFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B737919B26257612003BF61C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B737919D26257612003BF61C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				B73791A62625761F003BF61C /* LaunchScreen.storyboard */,
 				B73791A92625761F003BF61C /* Info.plist */,
 				91B783E82627740D00D003BB /* WelcomeVC.swift */,
+				91B783F02627A68C00D003BB /* LoginVC.swift */,
 			);
 			path = Capstone_WinMachines_WinFitness;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			files = (
 				B73791A026257612003BF61C /* ViewController.swift in Sources */,
 				91B783EC26277FC500D003BB /* RestScreenVC.swift in Sources */,
+				91B783F12627A68C00D003BB /* LoginVC.swift in Sources */,
 				B737919C26257612003BF61C /* AppDelegate.swift in Sources */,
 				B737919E26257612003BF61C /* SceneDelegate.swift in Sources */,
 				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
