@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783E82627740D00D003BB /* WelcomeVC.swift */; };
 		B737919C26257612003BF61C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737919B26257612003BF61C /* AppDelegate.swift */; };
 		B737919E26257612003BF61C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737919D26257612003BF61C /* SceneDelegate.swift */; };
 		B73791A026257612003BF61C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B737919F26257612003BF61C /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91B783E82627740D00D003BB /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		B737919826257612003BF61C /* Capstone_WinMachines_WinFitness.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Capstone_WinMachines_WinFitness.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B737919B26257612003BF61C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B737919D26257612003BF61C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				B73791A42625761F003BF61C /* Assets.xcassets */,
 				B73791A62625761F003BF61C /* LaunchScreen.storyboard */,
 				B73791A92625761F003BF61C /* Info.plist */,
+				91B783E82627740D00D003BB /* WelcomeVC.swift */,
 			);
 			path = Capstone_WinMachines_WinFitness;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 				B73791A026257612003BF61C /* ViewController.swift in Sources */,
 				B737919C26257612003BF61C /* AppDelegate.swift in Sources */,
 				B737919E26257612003BF61C /* SceneDelegate.swift in Sources */,
+				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
