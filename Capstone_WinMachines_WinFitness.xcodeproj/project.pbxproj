@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -54,7 +54,6 @@
 				4104E52540A22B7C9CBBCDF0 /* Pods-Capstone_WinMachines_WinFitness.debug.xcconfig */,
 				914AC674B7A02F7CD7273EF0 /* Pods-Capstone_WinMachines_WinFitness.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -378,7 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lamton.Capstone-WinMachines-WinFitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -398,7 +397,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lamton.Capstone-WinMachines-WinFitness";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
