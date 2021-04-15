@@ -78,18 +78,50 @@
 		B737919A26257612003BF61C /* Capstone_WinMachines_WinFitness */ = {
 			isa = PBXGroup;
 			children = (
-				B737919B26257612003BF61C /* AppDelegate.swift */,
-				B737919D26257612003BF61C /* SceneDelegate.swift */,
-				B737919F26257612003BF61C /* ViewController.swift */,
-				91B783EB26277FC500D003BB /* RestScreenVC.swift */,
+				B787D77E2628494900873A41 /* Views */,
+				B787D77D2628491300873A41 /* Model */,
+				B787D779262848E300873A41 /* Delegates */,
+				B787D77B262848FC00873A41 /* Controllers */,
 				B73791A126257612003BF61C /* Main.storyboard */,
 				B73791A42625761F003BF61C /* Assets.xcassets */,
 				B73791A62625761F003BF61C /* LaunchScreen.storyboard */,
 				B73791A92625761F003BF61C /* Info.plist */,
+			);
+			path = Capstone_WinMachines_WinFitness;
+			sourceTree = "<group>";
+		};
+		B787D779262848E300873A41 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				B737919B26257612003BF61C /* AppDelegate.swift */,
+				B737919D26257612003BF61C /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		B787D77B262848FC00873A41 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B737919F26257612003BF61C /* ViewController.swift */,
+				91B783EB26277FC500D003BB /* RestScreenVC.swift */,
 				91B783E82627740D00D003BB /* WelcomeVC.swift */,
 				91B783F02627A68C00D003BB /* LoginVC.swift */,
 			);
-			path = Capstone_WinMachines_WinFitness;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B787D77D2628491300873A41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B787D77E2628494900873A41 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DD7ACCD3AE1ECEDF06DE6D4F /* Frameworks */ = {
