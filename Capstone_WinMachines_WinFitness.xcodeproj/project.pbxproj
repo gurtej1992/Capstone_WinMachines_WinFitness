@@ -139,7 +139,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B73791AC2625761F003BF61C /* Build configuration list for PBXNativeTarget "Capstone_WinMachines_WinFitness" */;
 			buildPhases = (
-				4DC500CD9AF8BBA3BCAAC43A /* Build Project Frameworks */,
+				B00B18D2C0E0AFA834AAC43A /* Build Assets Catalog */,
 				D33D660F6C4FB9D7689621EF /* [CP] Check Pods Manifest.lock */,
 				B737919426257612003BF61C /* Sources */,
 				B737919526257612003BF61C /* Frameworks */,
@@ -203,7 +203,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 
-	4DC500CD9AF8BBA3BCAAC43A /* Build Project Frameworks */ = {
+	B00B18D2C0E0AFA834AAC43A /* Build Assets Catalog */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -212,7 +212,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Build Project Frameworks";
+			name = "Build Assets Catalog";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -223,6 +223,20 @@
 
 \"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/xcassets.folder\" false";			
 		};
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
+	
+
 	
 
 	
@@ -480,6 +494,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+		
+			/* Begin PBXBuildRule section */
+
+
+			
+	
+
+
+			
+	
+			
+
+			
+	
+			/* End PBXBuildRule section */
+		
+		
 	};
 	rootObject = B737919026257611003BF61C /* Project object */;
 }
