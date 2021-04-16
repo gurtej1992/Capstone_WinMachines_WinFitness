@@ -142,9 +142,9 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egi-tz-VoZ">
                                 <rect key="frame" x="159" y="685" width="97" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.43525356050000003" green="0.43532004949999997" blue="0.43523895740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" name="AccentColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="E-mail" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="792-em-oWs">
                                 <rect key="frame" x="9" y="446" width="397" height="34"/>
@@ -152,6 +152,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPe-TT-xpI">
+                                <rect key="frame" x="212" y="662" width="77" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-oB-US8">
+                                <rect key="frame" x="-8" y="45" width="414" height="736"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RGa-8h-ZlJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -163,13 +174,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="handleSignUp" destination="WPe-TT-xpI" id="Xai-rq-bI6"/>
                         <outlet property="txtEmail" destination="792-em-oWs" id="tZn-Ss-cqG"/>
                         <outlet property="txtPass" destination="0Ig-kA-Cws" id="YPT-nb-bxu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bt5-tw-LYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-1752" y="-551"/>
+=======
+            <point key="canvasLocation" x="-1275.3623188405797" y="-551.08695652173913"/>
+>>>>>>> main
         </scene>
         <!--NutritionVC-->
         <scene sceneID="gWJ-cf-RUt">
@@ -315,12 +331,24 @@
     </scenes>
     <resources>
         <image name="back" width="18" height="29"/>
+<<<<<<< HEAD
         <image name="btnLogin" width="145" height="48"/>
         <image name="btnSignup" width="145" height="48"/>
+=======
+        <image name="homeBg" width="375" height="667"/>
+>>>>>>> main
         <image name="loginBG" width="375" height="667"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="splash" width="375" height="667"/>
         <image name="welcomeBg" width="375" height="667"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

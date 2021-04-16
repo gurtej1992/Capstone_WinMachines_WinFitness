@@ -9,4 +9,17 @@ import UIKit
 
 class RestScreenVC: UIViewController {
 
+    @IBOutlet weak var lblRest: UILabel!
+    @IBOutlet weak var lbTime: UILabel!
+    @IBAction func handleButton(_ sender: UIButton) {
+    }
+
+    @IBOutlet weak var lblExcercise: UILabel!
+    
+    @IBAction func lblSprint(_ sender: Any) {
+    }
+    @IBAction func handleNext(_ sender: UIButton) {
+    }
+    
+
 }
