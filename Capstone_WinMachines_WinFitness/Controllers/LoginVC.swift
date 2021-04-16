@@ -31,7 +31,7 @@ class LoginVC: UIViewController {
                 print(error?.localizedDescription ?? "")
                 return
             }
-            strongSelf.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+           // strongSelf.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
             
         }
     }
