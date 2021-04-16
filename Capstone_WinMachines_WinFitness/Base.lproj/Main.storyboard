@@ -82,6 +82,9 @@
                                 <state key="normal" title="Sprint">
                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="lblSprint:" destination="g0q-cZ-c6Y" eventType="touchUpInside" id="Mue-sI-2t9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O58-jn-qeF">
                                 <rect key="frame" x="38" y="50" width="55" height="56"/>
@@ -89,6 +92,9 @@
                                 <state key="normal" image="back">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleButton:" destination="g0q-cZ-c6Y" eventType="touchUpInside" id="0zi-Q3-can"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPH-Eh-6Bv">
                                 <rect key="frame" x="193" y="668" width="64" height="30"/>
@@ -99,6 +105,9 @@
                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
                                     <color key="titleShadowColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleNext:" destination="g0q-cZ-c6Y" eventType="touchUpInside" id="MBv-ju-Tu5"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeBg" translatesAutoresizingMaskIntoConstraints="NO" id="u72-DY-WLc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -114,6 +123,11 @@
                             <constraint firstItem="u72-DY-WLc" firstAttribute="top" secondItem="2FP-5D-myr" secondAttribute="top" id="fwy-DV-EFW"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="lbTime" destination="kS2-gf-NCT" id="GUJ-zd-ybY"/>
+                        <outlet property="lblExcercise" destination="UV8-5Z-Pfi" id="Rj0-g6-mMg"/>
+                        <outlet property="lblRest" destination="STn-Uo-k3I" id="7W5-n2-tsI"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="-1910.144927536232" y="-551.08695652173913"/>
