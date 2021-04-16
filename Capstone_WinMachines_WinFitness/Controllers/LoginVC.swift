@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
     @IBOutlet weak var txtPass: UITextField!
@@ -14,20 +15,23 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func handleLogin(_ sender: Any) {
+        guard let pass = txtPass.text else {
+            return
+        }
+        guard let email = txtEmail.text else {
+            return
+        }
+        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
+            guard let strongSelf = self else { return }
+            if error != nil{
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            strongSelf.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+            
+        }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
