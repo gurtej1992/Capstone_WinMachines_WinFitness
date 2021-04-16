@@ -8,14 +8,18 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
+    @IBOutlet weak var txtPass: UITextField!
+    
+    @IBOutlet weak var txtEmail: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func handleLogin(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
