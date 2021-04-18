@@ -11,6 +11,9 @@ class NutritionVC: UIViewController {
 
     @IBOutlet weak var tblNutrition: UITableView!
 
+    @IBOutlet weak var lbl: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,4 +32,9 @@ class NutritionVC: UIViewController {
     @IBAction func handleSnacks(_ sender: UIButton) {
     }
     
+    @IBAction func handleBack(_ sender: UIButton) {
+    }
+
+    @IBAction func handleSearch(_ sender: UIButton) {
+    }
 }
