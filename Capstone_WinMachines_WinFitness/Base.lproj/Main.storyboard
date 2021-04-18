@@ -402,10 +402,10 @@
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="-810.32608695652175"/>
         </scene>
-        <!--View Controller-->
+        <!--ProgressVC-->
         <scene sceneID="pYf-qA-kOu">
             <objects>
-                <viewController id="0c9-2R-BYr" sceneMemberID="viewController">
+                <viewController id="0c9-2R-BYr" customClass="ProgressVC" customModule="Capstone_WinMachines_WinFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yaD-BO-zHJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -414,6 +414,9 @@
                                 <rect key="frame" x="0.0" y="21" width="52" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="handleBack:" destination="0c9-2R-BYr" eventType="touchUpInside" id="Uax-sI-5DI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VVj-3o-z45">
                                 <rect key="frame" x="347" y="21" width="37" height="30"/>
@@ -421,6 +424,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleDone:" destination="0c9-2R-BYr" eventType="touchUpInside" id="wNE-a7-bru"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image Preview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFc-Pr-je4">
                                 <rect key="frame" x="114" y="21" width="191" height="30"/>
@@ -450,6 +456,10 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="lblCaption" destination="MqW-DV-SmL" id="yVC-p1-Og7"/>
+                        <outlet property="lblImagePrev" destination="TFc-Pr-je4" id="Gqn-k9-n9K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D5F-gL-W07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

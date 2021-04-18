@@ -8,7 +8,13 @@
 import UIKit
 
 class ProgressVC: UIViewController {
-
+    @IBOutlet weak var lblCaption: UILabel!
+    
+    @IBOutlet weak var lblImagePrev: UILabel!
+    @IBAction func handleDone(_ sender: Any) {
+    }
+    @IBAction func handleBack(_ sender: Any) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
