@@ -11,18 +11,23 @@ import Firebase
 class LoginVC: UIViewController {
     @IBOutlet weak var txtPass: UITextField!
     
-    @IBOutlet weak var handleSignUp: UIButton!
+    @IBAction func handleSignUp(_ sender: Any) {
+    }
+   
     @IBOutlet weak var txtEmail: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-    @IBAction func handleLogin(_ sender: Any) {
-        guard let pass = txtPass.text else {
+    @IBAction func handleLogIn(_ sender: Any) {
+    
+   
+      
+    guard; let pass = txtPass.text; else {
             return
         }
-        guard let email = txtEmail.text else {
+        guard; guard let email = txtEmail.text else { return <#default value#> }; else {
             return
         }
         Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
@@ -31,8 +36,9 @@ class LoginVC: UIViewController {
                 print(error?.localizedDescription ?? "")
                 return
             }
-           // strongSelf.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+          
             
         }
     }
 }
+
