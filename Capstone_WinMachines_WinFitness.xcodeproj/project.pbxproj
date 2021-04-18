@@ -10,6 +10,7 @@
 		87499F85CE02EB64AA3ECC09 /* Pods_Capstone_WinMachines_WinFitness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EDEFA69510E39B8CEB7878C /* Pods_Capstone_WinMachines_WinFitness.framework */; };
 		910F4041262CDBCA0047BC85 /* ReadyScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F4040262CDBCA0047BC85 /* ReadyScreenVC.swift */; };
 		910F4044262CE6EB0047BC85 /* ProgressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F4043262CE6EB0047BC85 /* ProgressVC.swift */; };
+		910F404B262CEF850047BC85 /* WorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F404A262CEF850047BC85 /* WorkoutVC.swift */; };
 		91A55B302628D4A20060304C /* NutritionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A55B2F2628D4A20060304C /* NutritionVC.swift */; };
 		91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783E82627740D00D003BB /* WelcomeVC.swift */; };
 		91B783EC26277FC500D003BB /* RestScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B783EB26277FC500D003BB /* RestScreenVC.swift */; };
@@ -27,6 +28,7 @@
 		4104E52540A22B7C9CBBCDF0 /* Pods-Capstone_WinMachines_WinFitness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_WinMachines_WinFitness.debug.xcconfig"; path = "Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness.debug.xcconfig"; sourceTree = "<group>"; };
 		910F4040262CDBCA0047BC85 /* ReadyScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyScreenVC.swift; sourceTree = "<group>"; };
 		910F4043262CE6EB0047BC85 /* ProgressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressVC.swift; sourceTree = "<group>"; };
+		910F404A262CEF850047BC85 /* WorkoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutVC.swift; sourceTree = "<group>"; };
 		914AC674B7A02F7CD7273EF0 /* Pods-Capstone_WinMachines_WinFitness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capstone_WinMachines_WinFitness.release.xcconfig"; path = "Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness.release.xcconfig"; sourceTree = "<group>"; };
 		91A55B2F2628D4A20060304C /* NutritionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionVC.swift; sourceTree = "<group>"; };
 		91B783E82627740D00D003BB /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				91B783F02627A68C00D003BB /* LoginVC.swift */,
 				910F4040262CDBCA0047BC85 /* ReadyScreenVC.swift */,
 				910F4043262CE6EB0047BC85 /* ProgressVC.swift */,
+				910F404A262CEF850047BC85 /* WorkoutVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				B737919E26257612003BF61C /* SceneDelegate.swift in Sources */,
 				910F4041262CDBCA0047BC85 /* ReadyScreenVC.swift in Sources */,
 				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
+				910F404B262CEF850047BC85 /* WorkoutVC.swift in Sources */,
 				91A55B302628D4A20060304C /* NutritionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
