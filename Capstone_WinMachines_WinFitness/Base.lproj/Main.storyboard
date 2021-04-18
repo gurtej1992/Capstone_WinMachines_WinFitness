@@ -192,6 +192,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nutritionImg" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-vK-4FW">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
+                                                    <color key="backgroundColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBg-6D-tfw">
                                                     <rect key="frame" x="0.0" y="240" width="414" height="30"/>
@@ -251,26 +252,46 @@
                                     <constraint firstItem="BeK-lM-NWV" firstAttribute="centerY" secondItem="u0n-PT-cds" secondAttribute="centerY" id="xsb-Xe-kIS"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="n97-V9-cnB">
-                                <rect key="frame" x="0.0" y="50" width="414" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="n97-V9-cnB">
+                                <rect key="frame" x="0.0" y="49" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfj-dS-DmE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-cz-0ej">
                                         <rect key="frame" x="0.0" y="0.0" width="69.666666666666671" height="60"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-cz-0ej">
-                                        <rect key="frame" x="114.66666666666669" y="0.0" width="70" height="60"/>
-                                        <state key="normal" title="Button"/>
+                                        <color key="backgroundColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="BREAKFAST">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="15" name="AvenirNextCondensed-Regular"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="heavy"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuB-P9-pbE">
+                                        <rect key="frame" x="114.66666666666669" y="0.0" width="70" height="60"/>
+                                        <color key="backgroundColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="LUNCH">
+                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7Y-av-mAn">
                                         <rect key="frame" x="229.66666666666666" y="0.0" width="69.666666666666657" height="60"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="DINNER">
+                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXk-31-RsY">
                                         <rect key="frame" x="344.33333333333331" y="0.0" width="69.666666666666686" height="60"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="SNACKS">
+                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                        </state>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="sTn-cp-nNu"/>
                                 </constraints>
@@ -297,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGc-ri-PwX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539.13043478260875" y="-790.76086956521749"/>
+            <point key="canvasLocation" x="-655" y="-827"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="O3c-Bo-oYM">
@@ -340,6 +361,9 @@
         <image name="nutritionImg" width="375" height="261"/>
         <image name="splash" width="375" height="667"/>
         <image name="welcomeBg" width="375" height="667"/>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
