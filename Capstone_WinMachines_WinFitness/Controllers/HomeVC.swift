@@ -15,11 +15,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var lblWorkoutTitle: UILabel!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var viewEquipments: UIView!
+    @IBOutlet weak var viewContainerHeight: NSLayoutConstraint!
     @IBOutlet weak var viewMenu: UIView!
     @IBOutlet weak var viewMenuWidth: NSLayoutConstraint!
     let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewContainerHeight.constant = view.frame.height
     }
     @IBAction func handleProgress(_ sender: Any) {
     }

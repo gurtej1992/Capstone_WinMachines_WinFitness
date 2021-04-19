@@ -838,6 +838,16 @@
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QLK-N7-t5d">
                                                         <rect key="frame" x="0.0" y="271.33333333333326" width="0.0" height="465.66666666666674"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="cxn-KI-bvQ">
+                                                                <rect key="frame" x="0.0" y="28" width="0.0" height="1.1920928955078125e-07"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cxn-KI-bvQ" id="joG-mf-G37">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="1.1920928955078125e-07"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </tableViewCellContentView>
+                                                            </tableViewCell>
+                                                        </prototypes>
                                                         <connections>
                                                             <outlet property="dataSource" destination="9gk-CB-CfW" id="ecq-m2-VNN"/>
                                                             <outlet property="delegate" destination="9gk-CB-CfW" id="dbW-0s-wND"/>
@@ -923,6 +933,7 @@
                         <outlet property="lblUserName" destination="0eG-yE-38Q" id="8vc-2C-RMc"/>
                         <outlet property="lblWorkoutTitle" destination="Baa-3Y-rNO" id="Kg3-9w-YOV"/>
                         <outlet property="tblMenu" destination="QLK-N7-t5d" id="n59-IO-3RS"/>
+                        <outlet property="viewContainerHeight" destination="1om-nA-cIr" id="RWD-Ht-Nce"/>
                         <outlet property="viewEquipments" destination="uJn-En-UdN" id="qqU-P0-1Ag"/>
                         <outlet property="viewMenu" destination="b57-0V-YBd" id="TIo-lz-RG9"/>
                         <outlet property="viewMenuWidth" destination="OMi-Ob-eEP" id="7ha-Q0-zwz"/>
