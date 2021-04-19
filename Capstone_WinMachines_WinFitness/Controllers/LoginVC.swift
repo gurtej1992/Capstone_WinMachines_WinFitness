@@ -24,21 +24,21 @@ class LoginVC: UIViewController {
     
    
       
-    guard; let pass = txtPass.text; else {
-            return
-        }
-        guard; guard let email = txtEmail.text else { return <#default value#> }; else {
-            return
-        }
-        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
-            guard let strongSelf = self else { return }
-            if error != nil{
-                print(error?.localizedDescription ?? "")
-                return
-            }
-          
-            
-        }
+//    guard let pass = txtPass.text else {
+//            return
+//        }
+//        guard; guard let email = txtEmail.text else { return <#default value#> }; else {
+//            return
+//        }
+//        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
+//            guard let strongSelf = self else { return }
+//            if error != nil{
+//                print(error?.localizedDescription ?? "")
+//                return
+//            }
+//
+//
+//        }
     }
 }
 
