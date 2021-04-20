@@ -22,6 +22,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var txtSconfirmPass: UITextField!
     // Variables
     var comeForLogin = true
+    typealias Dic = [String:Any]
     
     
     override func viewDidLoad() {
@@ -63,19 +64,21 @@ class LoginVC: UIViewController {
         guard let pass = txtSpass.text else {return}
         guard let confirm = txtSconfirmPass.text else {return}
         if confirm == pass {
-            Auth.auth().createUser(withEmail: email, password: pass) { ([weak self] auth, error) in
+            Auth.auth().createUser(withEmail: email, password: pass) { [weak self](auth, error) in
                 guard let strongSelf = self else { return }
                 if error != nil{
                     print(error?.localizedDescription ?? "")
                     return
                 }
+                let ref = Database.database().reference()
+                let userDic = ["email":email,"name":name] as Dic
+                ref.child("Users").child(auth!.user.uid).setValue(userDic)
                 strongSelf.performSegue(withIdentifier: Constants.segToHome, sender: strongSelf)
             }
         }
-        else{
-            print("Password not matched")
-        }
+            else{
+                print("Password not matched")
+            }
     }
-   
 }
 

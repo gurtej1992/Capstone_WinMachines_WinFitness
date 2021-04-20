@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import Firebase
 
 class WelcomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        if let _ = Auth.auth().currentUser{
+          //  self.performSegue(withIdentifier: Constants.segToHome, sender: self)
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.segToSignup{

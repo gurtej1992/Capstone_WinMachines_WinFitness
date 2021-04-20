@@ -22,6 +22,7 @@
 		B73791A82625761F003BF61C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73791A62625761F003BF61C /* LaunchScreen.storyboard */; };
 		B787D78126284A0100873A41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B787D78026284A0100873A41 /* GoogleService-Info.plist */; };
 		B798D9AD262F5101008713DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AC262F5100008713DC /* Constants.swift */; };
+		B798D9B0262F5E1D008713DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AF262F5E1D008713DC /* User.swift */; };
 		B7C45611262E2361004B8F53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C45610262E2361004B8F53 /* HomeVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		B73791A92625761F003BF61C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B787D78026284A0100873A41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B798D9AC262F5100008713DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B798D9AF262F5E1D008713DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Capstone_WinMachines_WinFitness/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		B7C45610262E2361004B8F53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,9 +92,8 @@
 		B737919A26257612003BF61C /* Capstone_WinMachines_WinFitness */ = {
 			isa = PBXGroup;
 			children = (
+				B798D9B2262F5E3F008713DC /* Models */,
 				B798D9AA262F50C9008713DC /* Helper */,
-				B787D77E2628494900873A41 /* Views */,
-				B787D77D2628491300873A41 /* Model */,
 				B787D779262848E300873A41 /* Delegates */,
 				B787D77B262848FC00873A41 /* Controllers */,
 				B73791A126257612003BF61C /* Main.storyboard */,
@@ -128,26 +129,20 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		B787D77D2628491300873A41 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		B787D77E2628494900873A41 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		B798D9AA262F50C9008713DC /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				B798D9AC262F5100008713DC /* Constants.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		B798D9B2262F5E3F008713DC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B798D9AF262F5E1D008713DC /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DD7ACCD3AE1ECEDF06DE6D4F /* Frameworks */ = {
@@ -300,6 +295,7 @@
 				B737919C26257612003BF61C /* AppDelegate.swift in Sources */,
 				B737919E26257612003BF61C /* SceneDelegate.swift in Sources */,
 				910F4041262CDBCA0047BC85 /* ReadyScreenVC.swift in Sources */,
+				B798D9B0262F5E1D008713DC /* User.swift in Sources */,
 				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
 				910F404B262CEF850047BC85 /* WorkoutVC.swift in Sources */,
 				91A55B302628D4A20060304C /* NutritionVC.swift in Sources */,
