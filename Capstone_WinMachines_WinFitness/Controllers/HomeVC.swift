@@ -84,7 +84,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         case 3:
             print(arrMenu[indexPath.row])
         case 4:
-            print(arrMenu[indexPath.row])
+            performSegue(withIdentifier: Constants.segToNutrition, sender: self)
         default:
             if let _ = Auth.auth().currentUser{
                 do{

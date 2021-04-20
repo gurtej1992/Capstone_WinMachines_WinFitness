@@ -12,6 +12,7 @@ class WelcomeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        createWorkouts()
         if let _ = Auth.auth().currentUser{
             let vc = storyboard?.instantiateViewController(identifier: Constants.HomeVC) as! HomeVC
             self.navigationController?.pushViewController(vc, animated: true)
@@ -23,11 +24,17 @@ class WelcomeVC: UIViewController {
             vc.comeForLogin = false
         }
     }
-
     @IBAction func handleLogin(_ sender: Any) {
         performSegue(withIdentifier: Constants.segToLogin, sender: self)
     }
     @IBAction func handleSingup(_ sender: Any) {
         performSegue(withIdentifier: Constants.segToSignup, sender: self)
+    }
+    func createWorkouts(){
+        let x =  ["WorkoutName":"","Equipments":["mats","barbell"],"video":"","type":"reps"] as [String : Any]
+        let _ = Database.database().reference().child("Workouts").childByAutoId().setValue(x)
+        
+        let y = ["workoutID":"","reps":"15","sets"]
+        let _ = Database.database().reference().child("WorkoutPlan").child("0").child(<#T##pathString: String##String#>)
     }
 }
