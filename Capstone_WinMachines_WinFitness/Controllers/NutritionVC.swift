@@ -24,9 +24,9 @@ class NutritionVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     func createArray() -> [Image]{
-        
+
     }
-    
+
     class Image{
         var image: UIImage
         var title: String
@@ -53,4 +53,5 @@ class NutritionVC: UIViewController {
 
     @IBAction func handleSearch(_ sender: UIButton) {
     }
+}
 }
