@@ -46,12 +46,3 @@ class NutritionVC: UIViewController {
     }
 }
 
-class Image{
-    var image: UIImage
-    var title: String
-
-    init(image: UIImage, title: String){
-        self.image = image
-        self.title = title
-}
-}
