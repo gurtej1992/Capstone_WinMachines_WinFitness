@@ -13,7 +13,8 @@ class WelcomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let _ = Auth.auth().currentUser{
-          //  self.performSegue(withIdentifier: Constants.segToHome, sender: self)
+            let vc = storyboard?.instantiateViewController(identifier: Constants.HomeVC) as! HomeVC
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

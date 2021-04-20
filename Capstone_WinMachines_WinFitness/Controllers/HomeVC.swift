@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Firebase
 class HomeVC: UIViewController {
     @IBOutlet var btnWeekDays: [UIButton]!
     @IBOutlet weak var tblMenu: UITableView!
@@ -19,7 +19,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var viewMenu: UIView!
     @IBOutlet weak var viewMenuWidth: NSLayoutConstraint!
     @IBOutlet weak var viewToBlur: UIView!
-    let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition"]
+    let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
         viewContainerHeight.constant = view.frame.height
@@ -83,8 +83,17 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
             print(arrMenu[indexPath.row])
         case 3:
             print(arrMenu[indexPath.row])
-        default:
+        case 4:
             print(arrMenu[indexPath.row])
+        default:
+            if let _ = Auth.auth().currentUser{
+                do{
+                    try Auth.auth().signOut()
+                    self.navigationController?.popViewController(animated: true)
+                }
+                catch{
+                }
+            }
         }
     }
 }
