@@ -351,6 +351,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="bBg-6D-tfw" secondAttribute="bottom" id="yBR-rp-qhb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ImageCell" destination="lgV-vK-4FW" id="p4y-Ra-sYU"/>
+                                            <outlet property="lbl" destination="bBg-6D-tfw" id="wmi-tR-z7K"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
