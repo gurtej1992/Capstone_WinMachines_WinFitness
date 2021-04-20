@@ -24,18 +24,9 @@ class NutritionVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     func createArray() -> [Image]{
-
+        let im = Image(image: UIImage(named: "splash")!, title: "Break")
+        return im
     }
-
-    class Image{
-        var image: UIImage
-        var title: String
-    
-        init(image: UIImage, title: String){
-            self.image = image
-            self.title = title
-    }
-
     @IBAction func handleBreakfast(_ sender: UIButton) {
     }
     
@@ -53,5 +44,14 @@ class NutritionVC: UIViewController {
 
     @IBAction func handleSearch(_ sender: UIButton) {
     }
+}
+
+class Image{
+    var image: UIImage
+    var title: String
+
+    init(image: UIImage, title: String){
+        self.image = image
+        self.title = title
 }
 }

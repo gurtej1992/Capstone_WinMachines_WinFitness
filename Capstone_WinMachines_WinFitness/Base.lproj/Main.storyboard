@@ -462,15 +462,14 @@
                             <constraint firstItem="Nvu-XD-eso" firstAttribute="trailing" secondItem="bqq-5V-EEe" secondAttribute="trailing" id="mRf-oi-rrc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="T6r-Lq-FPc"/>
                     <connections>
-                        <outlet property="imageCell" destination="lgV-vK-4FW" id="Yhh-CL-u2V"/>
-                        <outlet property="lbl" destination="bBg-6D-tfw" id="WN7-qd-z4C"/>
                         <outlet property="tblNutrition" destination="bqq-5V-EEe" id="9iC-Ay-Vr3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGc-ri-PwX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="-1030"/>
+            <point key="canvasLocation" x="-164" y="425"/>
         </scene>
         <!--Ready ScreenVC-->
         <scene sceneID="3rc-RA-e3U">
@@ -864,6 +863,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="281.66666666666669"/>
                                                                 <connections>
                                                                     <action selector="handleNutrition:" destination="9gk-CB-CfW" eventType="touchUpInside" id="PgH-px-ohm"/>
+                                                                    <segue destination="d6R-yS-fui" kind="show" identifier="toNutrition" id="0IV-Ky-vvi"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
