@@ -9,6 +9,8 @@ import UIKit
 import Foundation
 
 class NutritionVC: UIViewController {
+    var images: [Image] = []
+    
 
     @IBOutlet weak var tblNutrition: UITableView!
 
@@ -21,6 +23,10 @@ class NutritionVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    func createArray() -> [Image]{
+        
+    }
+    
     class Image{
         var image: UIImage
         var title: String
