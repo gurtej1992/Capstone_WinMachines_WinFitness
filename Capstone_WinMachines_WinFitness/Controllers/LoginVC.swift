@@ -20,33 +20,61 @@ class LoginVC: UIViewController {
     @IBOutlet weak var txtSpass: UITextField!
     @IBOutlet weak var txtSname: UITextField!
     @IBOutlet weak var txtSconfirmPass: UITextField!
+    // Variables
+    var comeForLogin = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareUI()
 
     }
-    
+    func prepareUI(){
+        if comeForLogin{
+            stackViewSignup.isHidden = true
+            viewLoginHeight.constant = (view.frame.height * 40) / 100
+            viewLogin.isHidden = false
+        }
+        else{
+            stackViewSignup.isHidden = false
+            viewLoginHeight.constant = 0
+            viewLogin.isHidden = true
+        }
+    }
+    @IBAction func handleBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBAction func handleLogIn(_ sender: Any) {
     
-   
-      
-//    guard let pass = txtPass.text else {
-//            return
-//        }
-//        guard; guard let email = txtEmail.text else { return <#default value#> }; else {
-//            return
-//        }
-//        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
-//            guard let strongSelf = self else { return }
-//            if error != nil{
-//                print(error?.localizedDescription ?? "")
-//                return
-//            }
-//
-//
-//        }
+    guard let pass = txtPass.text else {return}
+    guard let email = txtEmail.text else {return}
+        Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
+            guard let strongSelf = self else { return }
+            if error != nil{
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            strongSelf.performSegue(withIdentifier: Constants.segToHome, sender: strongSelf)
+        }
     }
     @IBAction func handleSignUp(_ sender: Any) {
+        guard let email = txtSemail.text else {return}
+        guard let name = txtSname.text else {return}
+        guard let pass = txtSpass.text else {return}
+        guard let confirm = txtSconfirmPass.text else {return}
+        if confirm == pass {
+            Auth.auth().createUser(withEmail: email, password: pass) { ([weak self] auth, error) in
+                guard let strongSelf = self else { return }
+                if error != nil{
+                    print(error?.localizedDescription ?? "")
+                    return
+                }
+                strongSelf.performSegue(withIdentifier: Constants.segToHome, sender: strongSelf)
+            }
+        }
+        else{
+            print("Password not matched")
+        }
     }
    
 }

@@ -14,16 +14,17 @@ class WelcomeVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Constants.segToSignup{
+            let vc = segue.destination as! LoginVC
+            vc.comeForLogin = false
+        }
     }
-    */
 
+    @IBAction func handleLogin(_ sender: Any) {
+        performSegue(withIdentifier: Constants.segToLogin, sender: self)
+    }
+    @IBAction func handleSingup(_ sender: Any) {
+        performSegue(withIdentifier: Constants.segToSignup, sender: self)
+    }
 }

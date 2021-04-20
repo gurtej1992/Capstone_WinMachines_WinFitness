@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9gk-CB-CfW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFd-nD-tPL">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -26,10 +26,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gF-1f-Tit">
                                         <rect key="frame" x="0.0" y="0.0" width="145" height="48"/>
                                         <state key="normal" backgroundImage="btnLogin"/>
+                                        <connections>
+                                            <action selector="handleLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Ap-hY-VVy"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ywh-pR-tvS">
                                         <rect key="frame" x="165" y="0.0" width="145" height="48"/>
                                         <state key="normal" image="btnSignup"/>
+                                        <connections>
+                                            <action selector="handleSingup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yi5-Ub-c2m"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -128,7 +134,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-oB-US8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBG" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-oB-US8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhR-54-lgt">
@@ -255,6 +261,17 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcX-hk-i4o">
+                                <rect key="frame" x="15" y="10" width="12.333333333333336" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FcX-hk-i4o" secondAttribute="height" multiplier="18:29" id="00X-b2-G9y"/>
+                                    <constraint firstAttribute="height" constant="20" id="2mJ-uk-1gB"/>
+                                </constraints>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="handleBack:" destination="ak9-s5-b0b" eventType="touchUpInside" id="2fJ-bv-kmk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RGa-8h-ZlJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -266,8 +283,10 @@
                             <constraint firstItem="5tl-oB-US8" firstAttribute="top" secondItem="RGa-8h-ZlJ" secondAttribute="top" id="R3o-0r-BAX"/>
                             <constraint firstItem="MhR-54-lgt" firstAttribute="leading" secondItem="RGa-8h-ZlJ" secondAttribute="leading" id="WX8-DW-8kM"/>
                             <constraint firstItem="WTS-EA-IqS" firstAttribute="leading" secondItem="RGa-8h-ZlJ" secondAttribute="leading" constant="50" id="XZK-8O-Zhe"/>
+                            <constraint firstItem="FcX-hk-i4o" firstAttribute="leading" secondItem="RGa-8h-ZlJ" secondAttribute="leading" constant="15" id="bPa-Ae-ovR"/>
                             <constraint firstItem="MhR-54-lgt" firstAttribute="bottom" secondItem="RGa-8h-ZlJ" secondAttribute="bottom" id="bcv-dS-saS"/>
                             <constraint firstItem="5tl-oB-US8" firstAttribute="leading" secondItem="RGa-8h-ZlJ" secondAttribute="leading" id="i3C-df-WO4"/>
+                            <constraint firstItem="FcX-hk-i4o" firstAttribute="top" secondItem="RGa-8h-ZlJ" secondAttribute="top" constant="10" id="lqd-Ft-OWo"/>
                             <constraint firstItem="RGa-8h-ZlJ" firstAttribute="trailing" secondItem="5tl-oB-US8" secondAttribute="trailing" id="ptU-2U-iXv"/>
                         </constraints>
                     </view>
@@ -282,6 +301,7 @@
                         <outlet property="txtSpass" destination="IGR-tI-5Q1" id="eaR-Xg-nKl"/>
                         <outlet property="viewLogin" destination="MhR-54-lgt" id="qhq-HZ-x0h"/>
                         <outlet property="viewLoginHeight" destination="aD6-2A-ljx" id="tGn-Ag-nTf"/>
+                        <segue destination="9gk-CB-CfW" kind="show" identifier="toHome" id="RY0-sR-3uO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bt5-tw-LYH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1053,6 +1073,7 @@
                             <constraint firstItem="790-w4-wBr" firstAttribute="leading" secondItem="doT-qt-7hT" secondAttribute="leading" id="rgE-R5-gaY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nbK-vh-NAu"/>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="imgProfile" destination="C4j-Ti-X7I" id="mKV-4D-fSd"/>
@@ -1070,7 +1091,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CsV-Y6-1Sf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594.2028985507247" y="-693.75"/>
+            <point key="canvasLocation" x="-1294" y="425"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3b1-Mx-AYR">

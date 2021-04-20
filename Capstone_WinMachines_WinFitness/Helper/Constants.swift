@@ -10,4 +10,5 @@ import UIKit
 class Constants: NSObject {
     static let segToLogin = "toLogin"
     static let segToSignup = "toSignup"
+    static let segToHome = "toHome"
 }
