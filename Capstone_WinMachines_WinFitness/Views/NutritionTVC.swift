@@ -9,6 +9,17 @@ import UIKit
 
 class NutritionTVC: UITableViewCell {
 
+    @IBOutlet weak var ImageCell: UIImageView!
+   
+    @IBOutlet weak var lbl: UILabel!
+  
+    
+    
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
