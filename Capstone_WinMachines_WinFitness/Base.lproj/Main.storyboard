@@ -463,12 +463,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageCell" destination="lgV-vK-4FW" id="Yhh-CL-u2V"/>
+                        <outlet property="lbl" destination="bBg-6D-tfw" id="WN7-qd-z4C"/>
                         <outlet property="tblNutrition" destination="bqq-5V-EEe" id="9iC-Ay-Vr3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGc-ri-PwX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252.17391304347828" y="-827.44565217391312"/>
+            <point key="canvasLocation" x="201" y="-1030"/>
         </scene>
         <!--Ready ScreenVC-->
         <scene sceneID="3rc-RA-e3U">
