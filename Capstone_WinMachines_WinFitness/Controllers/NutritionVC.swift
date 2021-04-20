@@ -25,7 +25,7 @@ class NutritionVC: UIViewController {
     }
     func createArray() -> [Image]{
         let im = Image(image: UIImage(named: "splash")!, title: "Break")
-        return im
+        return [im]
     }
     @IBAction func handleBreakfast(_ sender: UIButton) {
     }
