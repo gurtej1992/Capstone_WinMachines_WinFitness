@@ -6,18 +6,28 @@
 //
 
 import UIKit
+import Foundation
 
 class NutritionVC: UIViewController {
 
     @IBOutlet weak var tblNutrition: UITableView!
 
+    
     @IBOutlet weak var lbl: UILabel!
     
-    
+    @IBOutlet weak var imageCell: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    class Image{
+        var image: UIImage
+        var title: String
+    
+        init(image: UIImage, title: String){
+            self.image = image
+            self.title = title
     }
 
     @IBAction func handleBreakfast(_ sender: UIButton) {

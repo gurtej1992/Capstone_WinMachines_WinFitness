@@ -346,6 +346,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageCell" destination="lgV-vK-4FW" id="Yhh-CL-u2V"/>
+                        <outlet property="lbl" destination="bBg-6D-tfw" id="WN7-qd-z4C"/>
                         <outlet property="tblNutrition" destination="bqq-5V-EEe" id="9iC-Ay-Vr3"/>
                     </connections>
                 </viewController>
