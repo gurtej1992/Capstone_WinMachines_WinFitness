@@ -9,12 +9,18 @@ import UIKit
 import Firebase
 
 class LoginVC: UIViewController {
+    //Outlets for Login
     @IBOutlet weak var txtPass: UITextField!
-    
-    @IBAction func handleSignUp(_ sender: Any) {
-    }
-   
     @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var viewLogin: UIView!
+    @IBOutlet weak var viewLoginHeight: NSLayoutConstraint!
+    // Outlets for Signup
+    @IBOutlet weak var stackViewSignup: UIStackView!
+    @IBOutlet weak var txtSemail: UITextField!
+    @IBOutlet weak var txtSpass: UITextField!
+    @IBOutlet weak var txtSname: UITextField!
+    @IBOutlet weak var txtSconfirmPass: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,5 +46,8 @@ class LoginVC: UIViewController {
 //
 //        }
     }
+    @IBAction func handleSignUp(_ sender: Any) {
+    }
+   
 }
 
