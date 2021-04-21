@@ -13,15 +13,25 @@ class NutritionVC: UIViewController {
     
     var images: [Image] = []
     @IBOutlet weak var tblNutrition: UITableView!
+    var arrBreakfast = [Nutritions]()
+    var arrLunch = [Nutritions]()
+    var arrDinner = [Nutritions]()
+    var arrSnacks = [Nutritions]()
     override func viewDidLoad() {
         super.viewDidLoad()
         getNutrition()
     }
-    func getNutrition(){
+    func getNutrition(type : Meal){
         let ref = Database.database().reference().child("Nutrition")
-        ref.child("Breakfast").observeSingleEvent(of: .value) { (snap) in
-            print(snap.children)
+        ref.child("Breakfast").observe(.childAdded) { (snap) in
+            if(snap.exists()){
+                let snapshot  = snap.value as! [String:Any]
+                let breakfast = Nutritions(image: snapshot["image"] as! String, link: snapshot["link"] as! String, name: snapshot["name"] as! String)
+                self.arrBreakfast.append(breakfast)
+                self.tblNutrition.reloadData()
+            }
         }
+        
     }
     func createArray() -> [Image]{
         let im = Image(image: UIImage(named: "Breakfast Image")!, title: "Morning Diet")
@@ -33,6 +43,7 @@ class NutritionVC: UIViewController {
     
     @IBAction func handleLunch(_ sender: UIButton) {
   }
+    
     
     @IBAction func handleDinner(_ sender: UIButton) {
     }
