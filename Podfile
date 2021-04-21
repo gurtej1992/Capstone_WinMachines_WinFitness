@@ -11,5 +11,5 @@ pod 'Firebase/Messaging'
 pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'SDWebImage'
-pod "MobilePlayer"
+  pod "Player", "~> 0.13.2"
 end
