@@ -50,8 +50,16 @@ class HomeVC: UIViewController {
         let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
             if snap.exists(){
                 let snapshot = snap.value as! [String:Any]
-                self.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: snapshot["day"] as? Int ?? 0)
-                
+                let day = Int((snapshot["day"] as! String)) ?? 0
+                self.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: day)
+                for btn in self.btnWeekDays{
+                    if btn.tag == day{
+                        btn.backgroundColor = Constants.ThemePink
+                    }
+                    else{
+                        btn.backgroundColor = UIColor.clear
+                    }
+                }
                 self.lblUserName.text = self.currentUser.name
                 self.lblUserEmail.text = self.currentUser.email
                 self.imgProfile.sd_setImage(with: URL(string:self.currentUser.picture), placeholderImage: UIImage(named: "splash"))
@@ -68,6 +76,9 @@ class HomeVC: UIViewController {
                 self.arrWorkouts.append(work)
             }
         }
+    }
+    func setWorkout(){
+        
     }
     @IBAction func handleProgress(_ sender: Any) {
     }
@@ -93,6 +104,14 @@ class HomeVC: UIViewController {
     @IBAction func handleStartWorkout(_ sender: Any) {
     }
     @IBAction func handleWeekDay(_ sender: UIButton) {
+        for btn in btnWeekDays{
+            if btn.tag == sender.tag{
+                btn.backgroundColor = Constants.ThemePink
+            }
+            else{
+                btn.backgroundColor = UIColor.clear
+            }
+        }
     }
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if !viewMenu.isHidden{

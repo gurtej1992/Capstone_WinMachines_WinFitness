@@ -1116,6 +1116,12 @@
                         <outlet property="viewMenuWidth" destination="OMi-Ob-eEP" id="7ha-Q0-zwz"/>
                         <outlet property="viewToBlur" destination="TcC-MT-0N5" id="hsK-DY-23k"/>
                         <outletCollection property="btnWeekDays" destination="Z3d-Yr-Pmm" collectionClass="NSMutableArray" id="612-eQ-r0A"/>
+                        <outletCollection property="btnWeekDays" destination="axQ-4g-91i" collectionClass="NSMutableArray" id="sGf-8n-UWX"/>
+                        <outletCollection property="btnWeekDays" destination="Xrt-64-Ebo" collectionClass="NSMutableArray" id="yS0-9V-eOC"/>
+                        <outletCollection property="btnWeekDays" destination="FTD-c8-qu1" collectionClass="NSMutableArray" id="oJA-WB-P4z"/>
+                        <outletCollection property="btnWeekDays" destination="dyS-lx-7Lf" collectionClass="NSMutableArray" id="R2H-Lw-BCA"/>
+                        <outletCollection property="btnWeekDays" destination="zYu-Pe-NOC" collectionClass="NSMutableArray" id="Etd-FZ-Lku"/>
+                        <outletCollection property="btnWeekDays" destination="28D-9n-8w0" collectionClass="NSMutableArray" id="opV-5p-0d2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CsV-Y6-1Sf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
