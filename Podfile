@@ -11,4 +11,5 @@ pod 'Firebase/Messaging'
 pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'SDWebImage'
+pod "MobilePlayer"
 end

@@ -634,6 +634,9 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="info.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="handleInfo:" destination="U2h-xD-wnB" eventType="touchUpInside" id="nke-q4-mc9"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qSi-kz-dlB">
                                 <rect key="frame" x="30.000000000000004" y="78" width="33.333333333333343" height="65"/>
@@ -689,6 +692,9 @@
                                     <constraint firstAttribute="width" secondItem="xM8-0q-fYQ" secondAttribute="height" multiplier="18:29" id="vgf-pi-twu"/>
                                 </constraints>
                                 <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="handleBack:" destination="U2h-xD-wnB" eventType="touchUpInside" id="YfI-so-Dqv"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 of 3 SQUATS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mes-i8-OkN">
                                 <rect key="frame" x="154" y="10" width="106" height="48"/>
@@ -706,6 +712,9 @@
                                 <state key="normal" title="Next">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="handleNext:" destination="U2h-xD-wnB" eventType="touchUpInside" id="fZx-WA-FAV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GcC-ve-3AO"/>
@@ -742,7 +751,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblNumSets" destination="KiI-e0-PBW" id="bNf-sz-ryA"/>
+                        <outlet property="lblReps" destination="2L4-Zw-BiI" id="dvH-fe-tR4"/>
+                        <outlet property="lblTitle" destination="Mes-i8-OkN" id="TTe-Av-w7o"/>
+                        <outlet property="lblUpNext" destination="XmA-mf-9E7" id="Zrq-hB-egP"/>
                         <outlet property="viewBlur" destination="Yug-WA-P3s" id="oyq-Lx-VQq"/>
+                        <outlet property="viewPlayer" destination="Wzf-Jg-MnE" id="Avk-A5-gZM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdt-cE-6Yw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

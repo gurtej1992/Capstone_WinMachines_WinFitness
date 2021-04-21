@@ -174,8 +174,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B73791AC2625761F003BF61C /* Build configuration list for PBXNativeTarget "Capstone_WinMachines_WinFitness" */;
 			buildPhases = (
-				8E5DADCAE5923BCEFAAAC43A /* [CP] Build Pods Frameworks */,
 				D33D660F6C4FB9D7689621EF /* [CP] Check Pods Manifest.lock */,
+				8E5DADCAE5923BCEFAAAC43A /* [CP] Build Pods Frameworks */,
 				B737919426257612003BF61C /* Sources */,
 				B737919526257612003BF61C /* Frameworks */,
 				B737919626257612003BF61C /* Resources */,

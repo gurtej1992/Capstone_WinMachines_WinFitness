@@ -9,6 +9,11 @@ import UIKit
 
 class WorkoutVC: UIViewController {
 
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblUpNext: UILabel!
+    @IBOutlet weak var viewPlayer: UIView!
+    @IBOutlet weak var lblReps: UILabel!
+    @IBOutlet weak var lblNumSets: UILabel!
     @IBOutlet weak var viewBlur: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,5 +27,13 @@ class WorkoutVC: UIViewController {
         viewBlur.addSubview(blurEffectView)
         
     }
+    @IBAction func handleNext(_ sender: Any) {
+    }
+    @IBAction func handleInfo(_ sender: Any) {
+    }
+    @IBAction func handleBack(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 
