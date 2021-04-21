@@ -611,10 +611,10 @@
             </objects>
             <point key="canvasLocation" x="1537.68115942029" y="-1574.1847826086957"/>
         </scene>
-        <!--View Controller-->
+        <!--WorkoutVC-->
         <scene sceneID="Gm3-Lf-cVr">
             <objects>
-                <viewController id="U2h-xD-wnB" sceneMemberID="viewController">
+                <viewController id="U2h-xD-wnB" customClass="WorkoutVC" customModule="Capstone_WinMachines_WinFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t0G-lb-qmH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -656,13 +656,6 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odr-ps-3Fw">
-                                <rect key="frame" x="186" y="259" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inX-iI-mHz">
                                 <rect key="frame" x="186" y="214" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -670,20 +663,53 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odr-ps-3Fw">
+                                <rect key="frame" x="186" y="259" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yug-WA-P3s">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GcC-ve-3AO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Yug-WA-P3s" firstAttribute="leading" secondItem="GcC-ve-3AO" secondAttribute="leading" id="2ic-K3-DFb"/>
                             <constraint firstItem="GcC-ve-3AO" firstAttribute="bottom" secondItem="S7p-2d-Ug7" secondAttribute="bottom" id="73I-mn-btT"/>
                             <constraint firstItem="S7p-2d-Ug7" firstAttribute="top" secondItem="GcC-ve-3AO" secondAttribute="top" id="CBb-gk-wQ3"/>
                             <constraint firstItem="S7p-2d-Ug7" firstAttribute="leading" secondItem="GcC-ve-3AO" secondAttribute="leading" id="XSa-Bd-Tjw"/>
+                            <constraint firstItem="Yug-WA-P3s" firstAttribute="trailing" secondItem="GcC-ve-3AO" secondAttribute="trailing" id="Y97-Bh-JaY"/>
+                            <constraint firstItem="Yug-WA-P3s" firstAttribute="top" secondItem="GcC-ve-3AO" secondAttribute="top" id="iba-kF-GRy"/>
+                            <constraint firstItem="GcC-ve-3AO" firstAttribute="bottom" secondItem="Yug-WA-P3s" secondAttribute="bottom" id="oQv-qO-QPZ"/>
                             <constraint firstItem="GcC-ve-3AO" firstAttribute="trailing" secondItem="S7p-2d-Ug7" secondAttribute="trailing" id="xCm-5u-WdF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="viewBlur" destination="Yug-WA-P3s" id="oyq-Lx-VQq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdt-cE-6Yw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2302.898550724638" y="-1803.2608695652175"/>
+            <point key="canvasLocation" x="2275.36231884058" y="-1933.6956521739132"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nic-fg-XtU">
+            <objects>
+                <viewController id="w1s-c9-azZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wrZ-o1-8jJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="a2A-Ur-axI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yxk-yo-FWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2003" y="162"/>
         </scene>
         <!--HomeVC-->
         <scene sceneID="O3c-Bo-oYM">
@@ -833,8 +859,17 @@
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJn-En-UdN">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="201"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gft-Y4-GYt">
+                                                                <rect key="frame" x="0.0" y="0.0" width="240" height="201"/>
+                                                            </stackView>
+                                                        </subviews>
                                                         <color key="backgroundColor" systemColor="secondaryLabelColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="Gft-Y4-GYt" firstAttribute="leading" secondItem="uJn-En-UdN" secondAttribute="leading" id="Eyj-KM-6JI"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Gft-Y4-GYt" secondAttribute="bottom" id="mth-lS-IFb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Gft-Y4-GYt" secondAttribute="trailing" id="oVJ-YI-hGf"/>
+                                                            <constraint firstItem="Gft-Y4-GYt" firstAttribute="top" secondItem="uJn-En-UdN" secondAttribute="top" id="s6i-ME-EM8"/>
                                                             <constraint firstAttribute="height" constant="201" id="uhg-3d-ep0"/>
                                                         </constraints>
                                                     </view>
@@ -1109,6 +1144,7 @@
                         <outlet property="lblUserEmail" destination="lDP-pf-q1w" id="gXA-GD-QV1"/>
                         <outlet property="lblUserName" destination="0eG-yE-38Q" id="8vc-2C-RMc"/>
                         <outlet property="lblWorkoutTitle" destination="Baa-3Y-rNO" id="Kg3-9w-YOV"/>
+                        <outlet property="stackViewEquip" destination="Gft-Y4-GYt" id="HKb-Nu-6OP"/>
                         <outlet property="tblMenu" destination="QLK-N7-t5d" id="n59-IO-3RS"/>
                         <outlet property="viewContainerHeight" destination="1om-nA-cIr" id="RWD-Ht-Nce"/>
                         <outlet property="viewEquipments" destination="uJn-En-UdN" id="qqU-P0-1Ag"/>

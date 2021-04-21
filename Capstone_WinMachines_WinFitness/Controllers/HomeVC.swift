@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var lblUserEmail: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblWorkoutTitle: UILabel!
+    @IBOutlet weak var stackViewEquip: UIStackView!
     @IBOutlet weak var lblTime: UILabel!
     @IBOutlet weak var viewEquipments: UIView!
     @IBOutlet weak var viewContainerHeight: NSLayoutConstraint!
@@ -81,6 +82,9 @@ class HomeVC: UIViewController {
         }
     }
     func setWorkout(day : Int){
+        for view in stackViewEquip.subviews{
+            stackViewEquip.removeArrangedSubview(view)
+        }
         let workout = arrWorkouts[day]
         lblWorkoutTitle.text = arrPlan[day]
         if arrPlan[day] == "Rest"{
@@ -88,12 +92,16 @@ class HomeVC: UIViewController {
         }
         else{
             lblTime.text = "TIME \(arrTime[day]) MINUTES"
+            for eq in arrEquip[day]{
+                       let lbl = UILabel()
+                       lbl.text = eq
+                       lbl.textColor = .white
+                       lbl.font = UIFont(name: "DINCondensed-Bold", size: 25)
+                       stackViewEquip.addArrangedSubview(lbl)
+                   }
         }
-        for eq in arrEquip[day]{
-            let lbl = UILabel()
-            lbl.text = eq
-            viewEquipments.addSubview(lbl)
-        }
+        
+       
     }
     @IBAction func handleProgress(_ sender: Any) {
     }
