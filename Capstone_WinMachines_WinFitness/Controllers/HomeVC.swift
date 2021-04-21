@@ -19,6 +19,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var viewMenu: UIView!
     @IBOutlet weak var viewMenuWidth: NSLayoutConstraint!
     @IBOutlet weak var viewToBlur: UIView!
+    var arrWorkouts = []
     let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +28,19 @@ class HomeVC: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = viewToBlur.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    
         viewToBlur.addSubview(blurEffectView)
+        fetchWorkouts()
     }
+    func fetchWorkouts(){
+        let ref = Database.database().reference().child("Workouts")
+        ref.observe(.childAdded) { (snap) in
+            if(snap.exists()){
+                let snapshot  = snap.value as! [String:Any]
+                let meal = Nutritions(image: snapshot["image"] as! String, link: snapshot["link"] as! String, name: snapshot["name"] as! String)
+                self.arrMeals.append(meal)
+                self.tblNutrition.reloadData()
+            }
+        }    }
     @IBAction func handleProgress(_ sender: Any) {
     }
     @IBAction func handleNutrition(_ sender: Any) {
