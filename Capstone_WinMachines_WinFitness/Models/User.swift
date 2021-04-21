@@ -20,6 +20,13 @@ struct Nutritions {
     var link :String
     var name : String
 }
+struct Workouts {
+    var video :String
+    var name :String
+    var desc : String
+    var type : String
+    var equipment : [String]?
+}
 enum Meal : String{
     case breakfast = "Breakfast"
     case lunch = "Lunch"

@@ -19,7 +19,7 @@ class HomeVC: UIViewController {
     @IBOutlet weak var viewMenu: UIView!
     @IBOutlet weak var viewMenuWidth: NSLayoutConstraint!
     @IBOutlet weak var viewToBlur: UIView!
-    var arrWorkouts = []
+    var arrWorkouts = [Workouts]()
     let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +36,13 @@ class HomeVC: UIViewController {
         ref.observe(.childAdded) { (snap) in
             if(snap.exists()){
                 let snapshot  = snap.value as! [String:Any]
-                let meal = Nutritions(image: snapshot["image"] as! String, link: snapshot["link"] as! String, name: snapshot["name"] as! String)
-                self.arrMeals.append(meal)
-                self.tblNutrition.reloadData()
+                let equip = snapshot["Equipments"] as? [String]
+                let work = Workouts(video: snapshot["video"] as? String ?? "", name: snapshot["WorkoutName"] as! String, desc: snapshot["desc"] as? String ?? "", type: snapshot["type"] as! String, equipment: equip)
+                self.arrWorkouts.append(work)
             }
-        }    }
+        }
+        
+    }
     @IBAction func handleProgress(_ sender: Any) {
     }
     @IBAction func handleNutrition(_ sender: Any) {
