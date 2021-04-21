@@ -18,6 +18,7 @@ class NutritionVC: UIViewController {
         getNutrition(type: .breakfast)
     }
     func getNutrition(type : Meal){
+        arrMeals.removeAll()
         let ref = Database.database().reference().child("Nutrition")
         ref.child(type.rawValue).observe(.childAdded) { (snap) in
             if(snap.exists()){
@@ -62,6 +63,8 @@ extension NutritionVC : UITableViewDelegate,UITableViewDataSource{
         cell.configureCells(meal: arrMeals[indexPath.row])
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        <#code#>
+    }
     
 }
