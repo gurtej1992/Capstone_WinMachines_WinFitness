@@ -24,7 +24,7 @@ class NutritionVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     func createArray() -> [Image]{
-        let im = Image(image: UIImage(named: "Breakfast Image","Lunch Diet","Evening snacks","dinnerImage")!, title: "Morning Diet","Lunch Diet","Snacks Time","Dinner Diet")
+        let im = Image(image: UIImage(named: "Breakfast Image")!, title: "Morning Diet")
         return [im]
     }
     
