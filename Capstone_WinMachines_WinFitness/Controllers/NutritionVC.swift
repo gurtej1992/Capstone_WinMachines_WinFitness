@@ -66,5 +66,8 @@ extension NutritionVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height/2
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let meal = arrMeals[indexPath.row]
+        guard let url = URL(string: meal.link) else { return }
+        UIApplication.shared.open(url)    }
 }
