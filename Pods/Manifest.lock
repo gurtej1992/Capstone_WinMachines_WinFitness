@@ -78,7 +78,6 @@ PODS:
     - nanopb/encode (= 2.30907.0)
   - nanopb/decode (2.30907.0)
   - nanopb/encode (2.30907.0)
-  - Player (0.13.3)
   - PromisesObjC (1.2.12)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
@@ -89,7 +88,6 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
-  - Player (~> 0.13.2)
   - SDWebImage
 
 SPEC REPOS:
@@ -108,7 +106,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
-    - Player
     - PromisesObjC
     - SDWebImage
 
@@ -127,10 +124,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
-  Player: e1889a481f14b3bc4065b62bed304c3de3b47dfe
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
 
-PODFILE CHECKSUM: 98d1e410c960eac07772efc1aa78b4f37b064fff
+PODFILE CHECKSUM: cf54ca538758bcaba44c5592535cc6b44752174a
 
 COCOAPODS: 1.10.1
