@@ -42,6 +42,10 @@ class LoginVC: UIViewController {
             viewLogin.isHidden = true
         }
     }
+    @IBAction func handleNotRegistered(_ sender: Any) {
+        comeForLogin = false
+        prepareUI()
+    }
     @IBAction func handleBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

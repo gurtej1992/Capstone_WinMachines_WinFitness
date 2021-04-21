@@ -169,16 +169,20 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Or Login With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egi-tz-VoZ">
-                                        <rect key="frame" x="159" y="249" width="71" height="17"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or Login With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egi-tz-VoZ">
+                                        <rect key="frame" x="171.66666666666666" y="240" width="70.666666666666657" height="17"/>
                                         <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mga-PW-wak">
-                                        <rect key="frame" x="149" y="320" width="116" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iK-aS-8Ey">
+                                        <rect key="frame" x="50" y="273" width="314" height="30"/>
+                                        <connections>
+                                            <action selector="handleNotRegistered:" destination="ak9-s5-b0b" eventType="touchUpInside" id="mTN-Bi-egb"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mga-PW-wak">
+                                        <rect key="frame" x="50" y="277" width="314" height="22"/>
                                         <attributedString key="attributedText">
                                             <fragment content="No registered yet?">
                                                 <attributes>
@@ -202,10 +206,19 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Mga-PW-wak" secondAttribute="trailing" constant="50" id="3u6-Qg-01T"/>
+                                    <constraint firstItem="Mga-PW-wak" firstAttribute="leading" secondItem="MhR-54-lgt" secondAttribute="leading" constant="50" id="6na-hx-iZF"/>
                                     <constraint firstItem="xQ9-G7-NmI" firstAttribute="leading" secondItem="MhR-54-lgt" secondAttribute="leading" constant="50" id="APQ-g6-NYj"/>
+                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Mga-PW-wak" secondAttribute="bottom" constant="201" id="GKY-LQ-tQV"/>
+                                    <constraint firstItem="6iK-aS-8Ey" firstAttribute="width" secondItem="Mga-PW-wak" secondAttribute="width" id="KQy-zJ-eKp"/>
+                                    <constraint firstItem="egi-tz-VoZ" firstAttribute="centerX" secondItem="xQ9-G7-NmI" secondAttribute="centerX" id="YDb-K0-nbt"/>
                                     <constraint firstAttribute="height" id="aD6-2A-ljx"/>
+                                    <constraint firstItem="6iK-aS-8Ey" firstAttribute="centerY" secondItem="Mga-PW-wak" secondAttribute="centerY" id="dyV-dI-FPk"/>
+                                    <constraint firstItem="6iK-aS-8Ey" firstAttribute="centerX" secondItem="Mga-PW-wak" secondAttribute="centerX" id="gNg-85-uQv"/>
                                     <constraint firstItem="xQ9-G7-NmI" firstAttribute="top" secondItem="MhR-54-lgt" secondAttribute="top" constant="30" id="gwB-Jd-Jiz"/>
+                                    <constraint firstItem="Mga-PW-wak" firstAttribute="top" secondItem="egi-tz-VoZ" secondAttribute="bottom" constant="20" id="mvL-yq-feu"/>
                                     <constraint firstAttribute="trailing" secondItem="xQ9-G7-NmI" secondAttribute="trailing" constant="50" id="qHl-Yw-trE"/>
+                                    <constraint firstItem="egi-tz-VoZ" firstAttribute="top" secondItem="xQ9-G7-NmI" secondAttribute="bottom" constant="20" id="rkV-fb-OQK"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="WTS-EA-IqS">

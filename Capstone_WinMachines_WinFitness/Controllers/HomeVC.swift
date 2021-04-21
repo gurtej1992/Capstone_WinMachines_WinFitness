@@ -95,5 +95,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                 }
             }
         }
+        if !viewMenu.isHidden{
+            handleMenuClose(self)
+        }
     }
 }
