@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class NutritionVC: UIViewController {
+    
     var images: [Image] = []
     @IBOutlet weak var tblNutrition: UITableView!
     override func viewDidLoad() {
@@ -18,8 +19,8 @@ class NutritionVC: UIViewController {
     }
     func getNutrition(){
         let ref = Database.database().reference().child("Nutrition")
-        ref.child("Breakfast").observeSingleEvent(of: .childAdded) { (snap) in
-            print(snap)
+        ref.child("Breakfast").observeSingleEvent(of: .value) { (snap) in
+            print(snap.children)
         }
     }
     func createArray() -> [Image]{
