@@ -7,21 +7,20 @@
 
 import UIKit
 import Foundation
+import Firebase
 
 class NutritionVC: UIViewController {
     var images: [Image] = []
-    
-
     @IBOutlet weak var tblNutrition: UITableView!
-
-    
-    @IBOutlet weak var lbl: UILabel!
-    
-    @IBOutlet weak var imageCell: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        getNutrition()
+    }
+    func getNutrition(){
+        let ref = Database.database().reference().child("Nutrition")
+        ref.child("Breakfast").observeSingleEvent(of: .childAdded) { (snap) in
+            print(snap)
+        }
     }
     func createArray() -> [Image]{
         let im = Image(image: UIImage(named: "Breakfast Image")!, title: "Morning Diet")
@@ -41,9 +40,22 @@ class NutritionVC: UIViewController {
     }
     
     @IBAction func handleBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
 
     @IBAction func handleSearch(_ sender: UIButton) {
     }
 }
-
+extension NutritionVC : UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! NutritionTVC
+        cell.lbl.text = ""
+        return cell
+    }
+    
+    
+}
