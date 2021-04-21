@@ -11,44 +11,38 @@ import Firebase
 
 class NutritionVC: UIViewController {
     
-    var images: [Image] = []
     @IBOutlet weak var tblNutrition: UITableView!
-    var arrBreakfast = [Nutritions]()
-    var arrLunch = [Nutritions]()
-    var arrDinner = [Nutritions]()
-    var arrSnacks = [Nutritions]()
+    var arrMeals = [Nutritions]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        getNutrition()
+        getNutrition(type: .breakfast)
     }
     func getNutrition(type : Meal){
         let ref = Database.database().reference().child("Nutrition")
-        ref.child("Breakfast").observe(.childAdded) { (snap) in
+        ref.child(type.rawValue).observe(.childAdded) { (snap) in
             if(snap.exists()){
                 let snapshot  = snap.value as! [String:Any]
-                let breakfast = Nutritions(image: snapshot["image"] as! String, link: snapshot["link"] as! String, name: snapshot["name"] as! String)
-                self.arrBreakfast.append(breakfast)
+                let meal = Nutritions(image: snapshot["image"] as! String, link: snapshot["link"] as! String, name: snapshot["name"] as! String)
+                self.arrMeals.append(meal)
                 self.tblNutrition.reloadData()
             }
         }
-        
-    }
-    func createArray() -> [Image]{
-        let im = Image(image: UIImage(named: "Breakfast Image")!, title: "Morning Diet")
-        return [im]
     }
     
     @IBAction func handleBreakfast(_ sender: UIButton) {
+        getNutrition(type: .breakfast)
+        
     }
-    
     @IBAction func handleLunch(_ sender: UIButton) {
-  }
+        getNutrition(type: .lunch)  }
     
     
     @IBAction func handleDinner(_ sender: UIButton) {
-    }
+        getNutrition(type: .dinner)    }
     
     @IBAction func handleSnacks(_ sender: UIButton) {
+        getNutrition(type: .snacks)
+        
     }
     
     @IBAction func handleBack(_ sender: UIButton) {
@@ -60,12 +54,12 @@ class NutritionVC: UIViewController {
 }
 extension NutritionVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return arrMeals.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! NutritionTVC
-        cell.lbl.text = ""
+        cell.configureCells(meal: arrMeals[indexPath.row])
         return cell
     }
     

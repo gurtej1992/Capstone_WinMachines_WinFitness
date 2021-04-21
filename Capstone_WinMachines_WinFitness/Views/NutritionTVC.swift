@@ -6,20 +6,11 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NutritionTVC: UITableViewCell {
-
     @IBOutlet weak var ImageCell: UIImageView!
-   
     @IBOutlet weak var lbl: UILabel!
-  
-    
-    
-    
-    
-    
-    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,6 +20,11 @@ class NutritionTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func configureCells(meal : Nutritions){
+        lbl.text = meal.name
+        ImageCell.sd_setImage(with: URL(string: meal.image))
     }
 
 }
