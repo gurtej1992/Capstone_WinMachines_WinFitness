@@ -1106,6 +1106,7 @@
                     <connections>
                         <outlet property="imgProfile" destination="C4j-Ti-X7I" id="mKV-4D-fSd"/>
                         <outlet property="lblTime" destination="czg-mL-ZHL" id="1Mw-Ql-BC8"/>
+                        <outlet property="lblUserEmail" destination="lDP-pf-q1w" id="gXA-GD-QV1"/>
                         <outlet property="lblUserName" destination="0eG-yE-38Q" id="8vc-2C-RMc"/>
                         <outlet property="lblWorkoutTitle" destination="Baa-3Y-rNO" id="Kg3-9w-YOV"/>
                         <outlet property="tblMenu" destination="QLK-N7-t5d" id="n59-IO-3RS"/>

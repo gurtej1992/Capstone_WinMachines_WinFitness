@@ -7,10 +7,12 @@
 
 import UIKit
 import Firebase
+import SDWebImage
 class HomeVC: UIViewController {
     @IBOutlet var btnWeekDays: [UIButton]!
     @IBOutlet weak var tblMenu: UITableView!
     @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var lblUserEmail: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblWorkoutTitle: UILabel!
     @IBOutlet weak var lblTime: UILabel!
@@ -40,6 +42,8 @@ class HomeVC: UIViewController {
                 let snapshot = snap.value as! [String:Any]
                 self.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: snapshot["day"] as? Int ?? 0)
                 self.lblUserName.text = self.currentUser.name
+                self.lblUserEmail.text = self.currentUser.email
+                self.imgProfile.sd_setImage(with: URL(string:self.currentUser.picture), placeholderImage: UIImage(named: "splash"))
             }
         }
     }
