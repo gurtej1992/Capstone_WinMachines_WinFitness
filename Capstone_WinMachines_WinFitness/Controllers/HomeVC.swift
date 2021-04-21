@@ -27,20 +27,31 @@ class HomeVC: UIViewController {
     let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareUI()
+        fetchUserDetails()
+        fetchWorkouts()
+    }
+    func prepareUI(){
+        // Added BlurView to Menu
         viewContainerHeight.constant = view.frame.height
         let blurEffect = UIBlurEffect(style: .systemThinMaterialDark)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = viewToBlur.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewToBlur.addSubview(blurEffectView)
-        fetchUserDetails()
-        fetchWorkouts()
+        
+        imgProfile.contentMode = .scaleAspectFill
+        imgProfile.layer.borderWidth = 5
+        imgProfile.layer.borderColor = Constants.ThemePink.cgColor
+        imgProfile.layer.cornerRadius = imgProfile.frame.width/2
+        imgProfile.clipsToBounds = true
     }
     func fetchUserDetails(){
         let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
             if snap.exists(){
                 let snapshot = snap.value as! [String:Any]
                 self.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: snapshot["day"] as? Int ?? 0)
+                
                 self.lblUserName.text = self.currentUser.name
                 self.lblUserEmail.text = self.currentUser.email
                 self.imgProfile.sd_setImage(with: URL(string:self.currentUser.picture), placeholderImage: UIImage(named: "splash"))

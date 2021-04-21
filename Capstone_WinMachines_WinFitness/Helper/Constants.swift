@@ -14,4 +14,6 @@ class Constants: NSObject {
     static let segToNutrition = "toNutrition"
     
     static let HomeVC = "HomeVC"
+    
+    static let ThemePink = UIColor(named: "ThemePink")!
 }
