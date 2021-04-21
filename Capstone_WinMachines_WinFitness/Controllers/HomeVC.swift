@@ -19,7 +19,9 @@ class HomeVC: UIViewController {
     @IBOutlet weak var viewMenu: UIView!
     @IBOutlet weak var viewMenuWidth: NSLayoutConstraint!
     @IBOutlet weak var viewToBlur: UIView!
+    let arrPlan = ["Warm up","Full Body", "Rest","Legs Workout","Chest Workout","Rest","Full Body"]
     var arrWorkouts = [Workouts]()
+    var currentUser : User!
     let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,17 @@ class HomeVC: UIViewController {
         blurEffectView.frame = viewToBlur.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewToBlur.addSubview(blurEffectView)
+        fetchUserDetails()
         fetchWorkouts()
+    }
+    func fetchUserDetails(){
+        let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
+            if snap.exists(){
+                let snapshot = snap.value as! [String:Any]
+                self.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: snapshot["day"] as? Int ?? 0)
+                self.lblUserName.text = self.currentUser.name
+            }
+        }
     }
     func fetchWorkouts(){
         let ref = Database.database().reference().child("Workouts")
@@ -41,7 +53,6 @@ class HomeVC: UIViewController {
                 self.arrWorkouts.append(work)
             }
         }
-        
     }
     @IBAction func handleProgress(_ sender: Any) {
     }

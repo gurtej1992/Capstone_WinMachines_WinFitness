@@ -14,6 +14,7 @@ struct User {
     var height : String = ""
     var weight : String = ""
     var dob :String = ""
+    var day : Int!
 }
 struct Nutritions {
     var image :String

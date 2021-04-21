@@ -75,7 +75,7 @@ class LoginVC: UIViewController {
                     return
                 }
                 let ref = Database.database().reference()
-                let userDic = ["email":email,"name":name] as Dic
+                let userDic = ["email":email,"name":name,"day":"1"] as Dic
                 ref.child("Users").child(auth!.user.uid).setValue(userDic)
                 strongSelf.performSegue(withIdentifier: Constants.segToHome, sender: strongSelf)
             }
