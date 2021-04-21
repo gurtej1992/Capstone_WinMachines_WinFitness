@@ -9,21 +9,18 @@ import UIKit
 
 class WorkoutVC: UIViewController {
 
+    @IBOutlet weak var viewBlur: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        prepareUI()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func prepareUI(){
+        let blurEffect = UIBlurEffect(style: .systemThinMaterialDark)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = viewBlur.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        viewBlur.addSubview(blurEffectView)
+        
     }
-    */
-
 }
+
