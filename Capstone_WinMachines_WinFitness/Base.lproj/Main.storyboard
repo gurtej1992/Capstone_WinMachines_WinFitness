@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U2h-xD-wnB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wFd-nD-tPL">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -614,7 +614,7 @@
         <!--WorkoutVC-->
         <scene sceneID="Gm3-Lf-cVr">
             <objects>
-                <viewController id="U2h-xD-wnB" customClass="WorkoutVC" customModule="Capstone_WinMachines_WinFitness" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutVC" id="U2h-xD-wnB" customClass="WorkoutVC" customModule="Capstone_WinMachines_WinFitness" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t0G-lb-qmH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -750,6 +750,7 @@
                             <constraint firstItem="GcC-ve-3AO" firstAttribute="trailing" secondItem="AS8-cc-2do" secondAttribute="trailing" constant="30" id="zpt-CK-Hb0"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="39n-zx-faA"/>
                     <connections>
                         <outlet property="lblNumSets" destination="KiI-e0-PBW" id="bNf-sz-ryA"/>
                         <outlet property="lblReps" destination="2L4-Zw-BiI" id="dvH-fe-tR4"/>
@@ -761,7 +762,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pdt-cE-6Yw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2275.36231884058" y="-1933.6956521739132"/>
+            <point key="canvasLocation" x="-297" y="921"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="nic-fg-XtU">

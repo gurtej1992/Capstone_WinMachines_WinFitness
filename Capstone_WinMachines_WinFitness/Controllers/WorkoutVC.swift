@@ -30,20 +30,36 @@ class WorkoutVC: UIViewController {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewBlur.addSubview(blurEffectView)
         
-         self.player = Player()
-         self.player.playerDelegate = self
-         self.player.playbackDelegate = self
-         self.player.view.frame = self.viewPlayer.bounds
-
-         self.addChild(self.player)
-         self.viewPlayer.addSubview(self.player.view)
-         self.player.didMove(toParent: self)
-        self.player.fillMode = .resizeAspectFill
-        self.player.playbackLoops = true
-        self.player.url = URL(string: "https://firebasestorage.googleapis.com/v0/b/winfitness-ec238.appspot.com/o/videos%2F1.mp4?alt=media&token=34c3d7e5-4c2c-4fc9-94e3-f983d449df3f")
+         
+        setWorkout()
         
     }
+    func setWorkout(){
+        let workout = arrWorkouts[workoutCount]
+        if workout.type != "rest"{
+            lblTitle.text = workout.name
+                    lblReps.text = "10"
+                    lblNumSets.text = "3"
+            self.player = nil
+            self.player = Player()
+            self.player.playerDelegate = self
+            self.player.playbackDelegate = self
+            self.player.view.frame = self.viewPlayer.bounds
+
+            self.addChild(self.player)
+            self.viewPlayer.addSubview(self.player.view)
+            self.player.didMove(toParent: self)
+           self.player.fillMode = .resizeAspectFill
+           self.player.playbackLoops = true
+            self.player.url = URL(string: workout.video)
+            if !self.player.isPlayingVideo{
+                self.playerReady(self.player)
+            }
+        }
+    }
     @IBAction func handleNext(_ sender: Any) {
+        workoutCount += 1
+        setWorkout()
     }
     @IBAction func handleInfo(_ sender: Any) {
     }

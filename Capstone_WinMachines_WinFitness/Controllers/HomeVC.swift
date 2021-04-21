@@ -34,6 +34,7 @@ class HomeVC: UIViewController {
         fetchUserDetails()
         fetchWorkouts()
     }
+
     func prepareUI(){
         // Added BlurView to Menu
         viewContainerHeight.constant = view.frame.height
@@ -125,6 +126,10 @@ class HomeVC: UIViewController {
     @IBAction func handleSkipWorkout(_ sender: Any) {
     }
     @IBAction func handleStartWorkout(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: Constants.WorkoutVC) as! WorkoutVC
+        vc.arrWorkouts = arrWorkouts
+        self.navigationController?.pushViewController(vc, animated: true)
+        
     }
     @IBAction func handleWeekDay(_ sender: UIButton) {
         setWorkout(day: sender.tag - 1)
