@@ -22,6 +22,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var viewMenuWidth: NSLayoutConstraint!
     @IBOutlet weak var viewToBlur: UIView!
     let arrPlan = ["Warm up","Full Body", "Rest","Legs Workout","Chest Workout","Rest","Full Body"]
+    let arrTime = ["10","30","1","20","30","1","50"]
+    let arrEquip = [["Mats"],["Mats","Dumbell","Barbell"],[],["Mats","Dumbell"],["Mats","Dumbell","Barbell"],[],["Mats","Barbell","Bench","Dumbell"]]
     var arrWorkouts = [Workouts]()
     var currentUser : User!
     let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition","Logout"]
@@ -60,6 +62,7 @@ class HomeVC: UIViewController {
                         btn.backgroundColor = UIColor.clear
                     }
                 }
+                self.setWorkout(day: day - 1)
                 self.lblUserName.text = self.currentUser.name
                 self.lblUserEmail.text = self.currentUser.email
                 self.imgProfile.sd_setImage(with: URL(string:self.currentUser.picture), placeholderImage: UIImage(named: "splash"))
@@ -77,8 +80,20 @@ class HomeVC: UIViewController {
             }
         }
     }
-    func setWorkout(){
-        
+    func setWorkout(day : Int){
+        let workout = arrWorkouts[day]
+        lblWorkoutTitle.text = arrPlan[day]
+        if arrPlan[day] == "Rest"{
+            lblTime.text = "TIME 1 DAY"
+        }
+        else{
+            lblTime.text = "TIME \(arrTime[day]) MINUTES"
+        }
+        for eq in arrEquip[day]{
+            let lbl = UILabel()
+            lbl.text = eq
+            viewEquipments.addSubview(lbl)
+        }
     }
     @IBAction func handleProgress(_ sender: Any) {
     }
@@ -104,6 +119,7 @@ class HomeVC: UIViewController {
     @IBAction func handleStartWorkout(_ sender: Any) {
     }
     @IBAction func handleWeekDay(_ sender: UIButton) {
+        setWorkout(day: sender.tag - 1)
         for btn in btnWeekDays{
             if btn.tag == sender.tag{
                 btn.backgroundColor = Constants.ThemePink
