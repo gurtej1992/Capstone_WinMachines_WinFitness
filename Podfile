@@ -12,4 +12,5 @@ pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'SDWebImage'
 pod 'FBSDKLoginKit'
+pod 'NVActivityIndicatorView'
 end

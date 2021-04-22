@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 class LoginVC: UIViewController {
     //Outlets for Login
@@ -28,7 +29,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
-
+        // facebookLogin()
+        
     }
     func prepareUI(){
         if comeForLogin{
@@ -42,6 +44,12 @@ class LoginVC: UIViewController {
             viewLogin.isHidden = true
         }
     }
+    func pushUserInfoInFirebase(email : String,name: String, picture:String? = "",uid :String){
+        let ref = Database.database().reference()
+        let userDic = ["email":email,"name":name,"day":"1","picture":picture ?? ""] as Dic
+        ref.child("Users").child(uid).setValue(userDic)
+        self.performSegue(withIdentifier: Constants.segToHome, sender: self)
+    }
     @IBAction func handleNotRegistered(_ sender: Any) {
         comeForLogin = false
         prepareUI()
@@ -50,9 +58,9 @@ class LoginVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func handleLogIn(_ sender: Any) {
-    
-    guard let pass = txtPass.text else {return}
-    guard let email = txtEmail.text else {return}
+        
+        guard let pass = txtPass.text else {return}
+        guard let email = txtEmail.text else {return}
         Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
             guard let strongSelf = self else { return }
             if error != nil{
@@ -74,15 +82,52 @@ class LoginVC: UIViewController {
                     print(error?.localizedDescription ?? "")
                     return
                 }
-                let ref = Database.database().reference()
-                let userDic = ["email":email,"name":name,"day":"1"] as Dic
-                ref.child("Users").child(auth!.user.uid).setValue(userDic)
-                strongSelf.performSegue(withIdentifier: Constants.segToHome, sender: strongSelf)
+                strongSelf.pushUserInfoInFirebase(email: email, name: name, uid: auth!.user.uid)
             }
         }
-            else{
-                print("Password not matched")
+        else{
+            print("Password not matched")
+        }
+    }
+    @IBAction func handleFBLogin(_ sender: Any) {
+        
+        // 1
+        let loginManager = LoginManager()
+        
+        if let _ = AccessToken.current {
+            loginManager.logOut()
+            
+        } else {
+            loginManager.logIn(permissions: [], from: self) { [weak self] (result, error) in
+                
+                guard error == nil else {
+                    print(error!.localizedDescription)
+                    return
+                }
+                guard let result = result, !result.isCancelled else {
+                    print("User cancelled login")
+                    return
+                }
+                let token = result.token?.tokenString
+                
+                let request = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "id, email, picture.type(normal), name"], tokenString: token, version: nil, httpMethod: .get)
+                request.start { (connection, result, error) in
+                    if let userData = result as? [String:Any]{
+                        let name = userData["name"] as! String
+                        let email = userData["email"] as! String
+                        let picture = ((userData["picture"] as! [String:Any])["data"] as! [String:Any])["url"] as! String
+                        let credential = FacebookAuthProvider.credential(withAccessToken: AccessToken.current!.tokenString)
+                        Auth.auth().signIn(with: credential) { [weak self](auth, error) in
+                            guard let strongSelf = self else { return }
+                            if error != nil{
+                                print(error?.localizedDescription ?? "")
+                                return
+                            }
+                            strongSelf.pushUserInfoInFirebase(email: email, name: name, uid: auth!.user.uid)
+                        }
+                    }
+                }
             }
+        }
     }
 }
-

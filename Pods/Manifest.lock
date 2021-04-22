@@ -1,4 +1,14 @@
 PODS:
+  - FBSDKCoreKit (9.2.0):
+    - FBSDKCoreKit/Basics (= 9.2.0)
+    - FBSDKCoreKit/Core (= 9.2.0)
+  - FBSDKCoreKit/Basics (9.2.0)
+  - FBSDKCoreKit/Core (9.2.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (9.2.0):
+    - FBSDKLoginKit/Login (= 9.2.0)
+  - FBSDKLoginKit/Login (9.2.0):
+    - FBSDKCoreKit (~> 9.2.0)
   - Firebase/Auth (7.9.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 7.9.0)
@@ -84,6 +94,7 @@ PODS:
   - SDWebImage/Core (5.10.4)
 
 DEPENDENCIES:
+  - FBSDKLoginKit
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Messaging
@@ -92,6 +103,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - Firebase
     - FirebaseAuth
     - FirebaseCore
@@ -110,6 +123,8 @@ SPEC REPOS:
     - SDWebImage
 
 SPEC CHECKSUMS:
+  FBSDKCoreKit: dace5abafc2fd9272733e6d027bcf18102712117
+  FBSDKLoginKit: 43f377b451d391f5bc9dd774f51a391db1072029
   Firebase: d8bd6bd34b4c7ed57bfdd056c66ff5adcdde53ab
   FirebaseAuth: 20625f04fdd213995249a82375b3dab39b1c136c
   FirebaseCore: 0798738ad1ae0fda67e17c7b9081241c431c6859
@@ -127,6 +142,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
 
-PODFILE CHECKSUM: cf54ca538758bcaba44c5592535cc6b44752174a
+PODFILE CHECKSUM: 48c89eb36c30862e6f8f9df959c18092a4a05d33
 
 COCOAPODS: 1.10.1
