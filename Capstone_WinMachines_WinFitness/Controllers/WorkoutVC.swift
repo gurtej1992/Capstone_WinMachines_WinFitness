@@ -29,29 +29,43 @@ class WorkoutVC: UIViewController {
         blurEffectView.frame = viewBlur.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewBlur.addSubview(blurEffectView)
-        
-        let videoURL = URL(string: "https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+        let videoURL = URL(string:arrWorkouts[workoutCount].video)
          player = AVPlayer(url: videoURL!)
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.viewPlayer.bounds
+        playerLayer.videoGravity = .resizeAspectFill
         self.viewPlayer.layer.addSublayer(playerLayer)
         player.play()
-         
         setWorkout()
         
     }
     func setWorkout(){
-        let workout = arrWorkouts[workoutCount]
-        if workout.type != "rest"{
-            lblTitle.text = workout.name
-                    lblReps.text = "10"
-                    lblNumSets.text = "3"
-            
-        }
+            lblTitle.text = arrWorkouts[workoutCount].name
+            lblReps.text = "10"
+            lblNumSets.text = "3"
+    }
+    func clearAndPlay(){
+        if let player = self.player{
+                player.pause()
+                self.player = nil
+            }
+        self.viewPlayer.layer.sublayers?.removeAll()
+        let videoURL = URL(string:arrWorkouts[workoutCount].video)
+         player = AVPlayer(url: videoURL!)
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = self.viewPlayer.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        self.viewPlayer.layer.addSublayer(playerLayer)
+        player.play()
+        
     }
     @IBAction func handleNext(_ sender: Any) {
         workoutCount += 1
-        setWorkout()
+        if workout.type != "rest"{
+            setWorkout()
+            clearAndPlay()
+        }
+        
     }
     @IBAction func handleInfo(_ sender: Any) {
     }

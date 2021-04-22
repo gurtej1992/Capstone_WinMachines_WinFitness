@@ -54,7 +54,7 @@ class HomeVC: UIViewController {
         let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
             if snap.exists(){
                 let snapshot = snap.value as! [String:Any]
-                let day = Int((snapshot["day"] as! String)) ?? 0
+                let day = Int((snapshot["day"] as! String)) ?? 1
                 self.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: day)
                 for btn in self.btnWeekDays{
                     if btn.tag == day{
@@ -86,7 +86,7 @@ class HomeVC: UIViewController {
         for view in stackViewEquip.subviews{
             stackViewEquip.removeArrangedSubview(view)
         }
-        let workout = arrWorkouts[day]
+        //let workout = arrWorkouts[day]
         lblWorkoutTitle.text = arrPlan[day]
         if arrPlan[day] == "Rest"{
             lblTime.text = "TIME 1 DAY"
