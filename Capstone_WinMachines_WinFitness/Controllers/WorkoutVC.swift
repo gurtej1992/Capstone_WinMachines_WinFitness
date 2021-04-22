@@ -8,7 +8,7 @@
 import UIKit
 import AVKit
 import SRCountdownTimer
-
+import PopupDialog
 class WorkoutVC: UIViewController {
 
     @IBOutlet weak var viewCountDown: SRCountdownTimer!
@@ -98,6 +98,16 @@ class WorkoutVC: UIViewController {
         
     }
     @IBAction func handleInfo(_ sender: Any) {
+        // Prepare the popup assets
+        let title = "Workout Description"
+        let message = arrWorkouts[workoutCount].desc
+        let popup = PopupDialog(title: title, message: message)
+        let buttonOne = CancelButton(title: "Okay") {
+            print("You canceled the car dialog.")
+        }
+        popup.addButton(buttonOne)
+        self.present(popup, animated: true, completion: nil)
+        
     }
     @IBAction func handleBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

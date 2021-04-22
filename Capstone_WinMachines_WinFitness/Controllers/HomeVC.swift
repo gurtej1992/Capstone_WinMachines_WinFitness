@@ -51,7 +51,7 @@ class HomeVC: UIViewController {
         imgProfile.clipsToBounds = true
     }
     func fetchUserDetails(){
-        let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observeSingleEvent(of: .value) { (snap) in
+        let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observe(.value) { (snap) in
             if snap.exists(){
                 let snapshot = snap.value as! [String:Any]
                 let day = Int((snapshot["day"] as! String)) ?? 1
@@ -124,6 +124,9 @@ class HomeVC: UIViewController {
         viewMenuWidth.constant = 0
     }
     @IBAction func handleSkipWorkout(_ sender: Any) {
+        if currentUser.day != 7{
+            let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).updateChildValues(["day":String(currentUser.day + 1)])
+        }
     }
     @IBAction func handleStartWorkout(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(identifier: Constants.WorkoutVC) as! WorkoutVC

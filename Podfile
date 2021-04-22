@@ -14,5 +14,6 @@ pod 'SDWebImage'
 pod 'TwitterKit'
 pod 'FBSDKLoginKit'
 pod 'SRCountdownTimer'
+pod 'PopupDialog'
 pod 'NVActivityIndicatorView'
 end

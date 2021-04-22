@@ -1,4 +1,5 @@
 PODS:
+  - DynamicBlurView (4.1.0)
   - FBSDKCoreKit (9.2.0):
     - FBSDKCoreKit/Basics (= 9.2.0)
     - FBSDKCoreKit/Core (= 9.2.0)
@@ -91,6 +92,8 @@ PODS:
   - NVActivityIndicatorView (5.1.1):
     - NVActivityIndicatorView/Base (= 5.1.1)
   - NVActivityIndicatorView/Base (5.1.1)
+  - PopupDialog (1.1.1):
+    - DynamicBlurView (~> 4.0)
   - PromisesObjC (1.2.12)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
@@ -107,12 +110,14 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Firebase/Storage
   - NVActivityIndicatorView
+  - PopupDialog
   - SDWebImage
   - SRCountdownTimer
   - TwitterKit
 
 SPEC REPOS:
   trunk:
+    - DynamicBlurView
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -130,6 +135,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - NVActivityIndicatorView
+    - PopupDialog
     - PromisesObjC
     - SDWebImage
     - SRCountdownTimer
@@ -137,6 +143,7 @@ SPEC REPOS:
     - TwitterKit
 
 SPEC CHECKSUMS:
+  DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   FBSDKCoreKit: dace5abafc2fd9272733e6d027bcf18102712117
   FBSDKLoginKit: 43f377b451d391f5bc9dd774f51a391db1072029
   Firebase: d8bd6bd34b4c7ed57bfdd056c66ff5adcdde53ab
@@ -154,12 +161,13 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
   NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
+  PopupDialog: 720c92befd8bc23c13442254945213db5612f149
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SRCountdownTimer: b7f833a51cd33003d55df17667b71d26ee17357f
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: dde85af13b065a8d723d2fc8dda81f4dbb3306fb
+PODFILE CHECKSUM: 90c9fac21bb9fb4b995bf8a26bbfa6ae73c625ad
 
 COCOAPODS: 1.10.1

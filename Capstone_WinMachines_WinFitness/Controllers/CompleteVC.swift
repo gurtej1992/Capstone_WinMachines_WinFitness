@@ -32,6 +32,11 @@ class CompleteVC: UIViewController {
         }
     }
     @IBAction func handleDone(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+        for controller in self.navigationController!.viewControllers as Array {
+                if controller.isKind(of: HomeVC.self) {
+                    _ =  self.navigationController!.popToViewController(controller, animated: true)
+                    break
+                }
+            }
     }
 }
