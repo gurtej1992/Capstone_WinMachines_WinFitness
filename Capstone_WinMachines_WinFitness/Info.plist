@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>To get walk and step counts</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -24,14 +26,14 @@
 				<string>fb450075386100005</string>
 			</array>
 		</dict>
-        <dict>
-                    <key>CFBundleTypeRole</key>
-                    <string>Editor</string>
-                    <key>CFBundleURLSchemes</key>
-                    <array>
-                        <string>twitterkit-eGnQOofGRUXuquXmBLKF33j5C</string>
-                    </array>
-                </dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>twitterkit-eGnQOofGRUXuquXmBLKF33j5C</string>
+			</array>
+		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
@@ -40,7 +42,6 @@
 				<string>com.googleusercontent.apps.315401891843-2tpp8q11pvcqumc3b6kb67l3jp137voe</string>
 			</array>
 		</dict>
-        
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

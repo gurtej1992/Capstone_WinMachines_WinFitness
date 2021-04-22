@@ -7,9 +7,10 @@
 
 import UIKit
 import Firebase
+import HealthKit
 
 class ProfileSettingVC: UIViewController {
-
+    
     @IBOutlet weak var viewToBlur: UIView!
     @IBOutlet weak var lblTotalDistance: UILabel!
     @IBOutlet weak var lbTotalSteps: UILabel!
@@ -19,6 +20,7 @@ class ProfileSettingVC: UIViewController {
     @IBOutlet weak var txtWeight: UITextField!
     @IBOutlet weak var txtDob: UITextField!
     @IBOutlet weak var imgUser: UIImageView!
+    let store = HKHealthStore()
     var currentUser : User!
     
     override func viewDidLoad() {
@@ -33,6 +35,74 @@ class ProfileSettingVC: UIViewController {
         imgUser.layer.cornerRadius = imgUser.frame.width/2
         imgUser.clipsToBounds = true
         fetchUserDetails()
+        setupHealthKit()
+    }
+    func setupHealthKit(){
+        
+        guard let stepType = HKQuantityType.quantityType(forIdentifier: .stepCount) else {return}
+        guard let walk = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) else {return}
+        let woType = HKObjectType.workoutType()
+        
+        store.requestAuthorization(toShare: [], read: [stepType, woType,walk], completion: { (isSuccess, error) in
+            if isSuccess {
+                print("Working")
+                self.getSteps()
+                self.getDistance()
+            } else {
+                print("Not working")
+            }
+        })
+    }
+    func getSteps() {
+        guard let type = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount) else{return}
+        
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+        let predicate = HKQuery.predicateForSamples(
+            withStart: startOfDay,
+            end: now,
+            options: .strictStartDate
+        )
+        
+        let query = HKStatisticsQuery(
+            quantityType: type,
+            quantitySamplePredicate: predicate,
+            options: .cumulativeSum
+        ) { _, result, _ in
+            guard let result = result, let sum = result.sumQuantity() else {
+                print(0.0)
+                return
+            }
+            DispatchQueue.main.async { [self] in
+                self.lbTotalSteps.text = "\(Int(sum.doubleValue(for: HKUnit.count())))"
+            }
+        }
+        
+        store.execute(query)
+    }
+    func getDistance(){
+        guard let type = HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning) else {
+            fatalError("Something went wrong retriebing quantity type distanceWalkingRunning")
+        }
+        let date =  Date()
+        let cal = Calendar(identifier: Calendar.Identifier.gregorian)
+        let newDate = cal.startOfDay(for: date)
+        
+        let predicate = HKQuery.predicateForSamples(withStart: newDate, end: Date(), options: .strictStartDate)
+        
+        let query = HKStatisticsQuery(quantityType: type, quantitySamplePredicate: predicate, options: [.cumulativeSum]) { (query, statistics, error) in
+            var value: Double = 0
+            
+            if error != nil {
+                print(error?.localizedDescription ?? "")
+            } else if let quantity = statistics?.sumQuantity() {
+                value = quantity.doubleValue(for: HKUnit.mile())
+            }
+            DispatchQueue.main.async { [self] in
+                self.lblTotalDistance.text = "\(value) in mile"
+            }
+        }
+        store.execute(query)
     }
     func fetchUserDetails(){
         let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observe(.value) { [weak self](snap) in
@@ -67,5 +137,5 @@ class ProfileSettingVC: UIViewController {
         self.txtName.text = self.currentUser.name
         self.imgUser.sd_setImage(with: URL(string:self.currentUser.picture), placeholderImage: UIImage(named: "splash"))
     }
-
+    
 }
