@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import TwitterKit
+
 
 class LoginVC: UIViewController {
     //Outlets for Login
@@ -24,6 +26,7 @@ class LoginVC: UIViewController {
     // Variables
     var comeForLogin = true
     typealias Dic = [String:Any]
+   // var swifter : Swifter?
     
     
     override func viewDidLoad() {
@@ -47,8 +50,14 @@ class LoginVC: UIViewController {
     func pushUserInfoInFirebase(email : String,name: String, picture:String? = "",uid :String){
         let ref = Database.database().reference()
         let userDic = ["email":email,"name":name,"day":"1","picture":picture ?? ""] as Dic
-        ref.child("Users").child(uid).setValue(userDic)
-        self.performSegue(withIdentifier: Constants.segToHome, sender: self)
+        ref.child("Users").child(uid).setValue(userDic) { (error, _) in
+            if error != nil{
+                print(error?.localizedDescription)
+                return
+            }
+            self.performSegue(withIdentifier: Constants.segToHome, sender: self)
+        }
+
     }
     @IBAction func handleNotRegistered(_ sender: Any) {
         comeForLogin = false
@@ -56,6 +65,30 @@ class LoginVC: UIViewController {
     }
     @IBAction func handleBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func handleTwitterLogin(_ sender: Any) {
+        TWTRTwitter.sharedInstance().logIn { (session, err) in
+            if err != nil {
+                print(err?.localizedDescription ?? "oops")
+                return
+            }
+            let twitterClient = TWTRAPIClient(userID: session?.userID)
+            twitterClient.loadUser(withID: (session?.userID)!) { (user, err) in
+                if err != nil {
+                    print(err?.localizedDescription ?? "oops")
+                    return
+                }
+                let credentials = TwitterAuthProvider.credential(withToken: (session?.authToken)!, secret: (session?.authTokenSecret)!)
+                Auth.auth().signIn(with: credentials) { [weak self](auth, error) in
+                    guard let strongSelf = self else { return }
+                    if error != nil{
+                        print(error?.localizedDescription ?? "")
+                        return
+                    }
+                    strongSelf.pushUserInfoInFirebase(email: user!.screenName, name: user!.name,picture: user?.profileImageLargeURL, uid: auth!.user.uid)
+                }
+            }
+        }
     }
     @IBAction func handleLogIn(_ sender: Any) {
         
@@ -123,7 +156,7 @@ class LoginVC: UIViewController {
                                 print(error?.localizedDescription ?? "")
                                 return
                             }
-                            strongSelf.pushUserInfoInFirebase(email: email, name: name, uid: auth!.user.uid)
+                            strongSelf.pushUserInfoInFirebase(email: email, name: name,picture: picture, uid: auth!.user.uid)
                         }
                     }
                 }

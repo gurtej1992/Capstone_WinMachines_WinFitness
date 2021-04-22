@@ -8,6 +8,9 @@
 import UIKit
 
 class Constants: NSObject {
+    static let TWITTER_API_KEY = "eGnQOofGRUXuquXmBLKF33j5C"
+    static let TWITTER_API_SECRET = "RH6tn1PFjuPHNWYOHMlS5iGodiwfYU476aQHM2dk5I4EozF4jC"
+    static let TWITTER_CALLBACK_URL = "https://winfitness-ec238.firebaseapp.com/__/auth/handler"
     static let segToLogin = "toLogin"
     static let segToSignup = "toSignup"
     static let segToHome = "toHome"

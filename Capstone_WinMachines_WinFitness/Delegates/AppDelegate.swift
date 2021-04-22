@@ -8,6 +8,8 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import TwitterKit
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -20,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                    application,
                    didFinishLaunchingWithOptions: launchOptions
                )
-
+        
+        TWTRTwitter.sharedInstance().start(withConsumerKey:Constants.TWITTER_API_KEY, consumerSecret:Constants.TWITTER_API_SECRET)
                return true
            }
                  
@@ -29,16 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                open url: URL,
                options: [UIApplication.OpenURLOptionsKey : Any] = [:]
            ) -> Bool {
+            if TWTRTwitter.sharedInstance().application(app, open: url, options: options) {
+                return true
+            }
 
-               ApplicationDelegate.shared.application(
+            return ApplicationDelegate.shared.application(
                    app,
                    open: url,
                    sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                    annotation: options[UIApplication.OpenURLOptionsKey.annotation]
                )
-
            }
-
 
     // MARK: UISceneSession Lifecycle
 

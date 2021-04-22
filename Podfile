@@ -11,6 +11,7 @@ pod 'Firebase/Messaging'
 pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'SDWebImage'
+pod 'TwitterKit'
 pod 'FBSDKLoginKit'
 pod 'NVActivityIndicatorView'
 end

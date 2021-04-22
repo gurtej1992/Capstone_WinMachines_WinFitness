@@ -283,6 +283,9 @@
                                                 <state key="normal" title="Login with Twitter">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="handleTwitterLogin:" destination="ak9-s5-b0b" eventType="touchUpInside" id="7Ct-KI-Va2"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>

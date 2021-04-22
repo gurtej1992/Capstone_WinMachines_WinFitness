@@ -6,7 +6,9 @@
 //
 
 import UIKit
-import FBSDKCoreKit 
+import FBSDKCoreKit
+import TwitterKit
+
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -16,7 +18,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let url = URLContexts.first?.url else {
             return
         }
-
+        if let openURLContext = URLContexts.first{
+          let url = openURLContext.url
+          let options: [AnyHashable : Any] = [
+            UIApplication.OpenURLOptionsKey.annotation : openURLContext.options.annotation as Any,
+            UIApplication.OpenURLOptionsKey.sourceApplication : openURLContext.options.sourceApplication as Any,
+            UIApplication.OpenURLOptionsKey.openInPlace : openURLContext.options.openInPlace
+          ]
+          TWTRTwitter.sharedInstance().application(UIApplication.shared, open: url, options: options)
+        }
         ApplicationDelegate.shared.application(
             UIApplication.shared,
             open: url,
@@ -24,6 +34,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             annotation: [UIApplication.OpenURLOptionsKey.annotation]
         )
     }
+    
+        
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
