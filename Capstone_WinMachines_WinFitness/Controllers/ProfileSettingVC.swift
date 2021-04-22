@@ -27,24 +27,31 @@ class ProfileSettingVC: UIViewController {
         blurEffectView.frame = viewToBlur.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewToBlur.addSubview(blurEffectView)
+        imgUser.contentMode = .scaleAspectFill
+        imgUser.layer.borderWidth = 5
+        imgUser.layer.borderColor = Constants.ThemePink.cgColor
+        imgUser.layer.cornerRadius = imgUser.frame.width/2
+        imgUser.clipsToBounds = true
         fetchUserDetails()
     }
     func fetchUserDetails(){
-        let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observe(.value) { (snap) in
+        let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).observe(.value) { [weak self](snap) in
+            guard let strongSelf = self else { return }
             if snap.exists(){
                 let snapshot = snap.value as! [String:Any]
                 let day = Int((snapshot["day"] as! String)) ?? 1
-                self.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: day)
-               
+                strongSelf.currentUser = User(email: snapshot["email"] as? String, name: snapshot["name"] as? String, picture: snapshot["picture"] as? String ?? "", height: snapshot["height"] as? String ?? "", weight: snapshot["weight"] as? String ?? "", dob: snapshot["dob"] as? String ?? "", day: day)
+                strongSelf.setUserDetails()
             }
         }
     }
+    
     @IBAction func handleSave(_ sender: UIButton) {
-        guard let email = txtEmail.text,let name = txtName.text,let dob = txtDob.text,let height = txtHeight,let weight = txtWeight.text else {
+        guard let email = txtEmail.text,let name = txtName.text,let dob = txtDob.text,let height = txtHeight.text,let weight = txtWeight.text else {
             return
         }
         let userDic = ["name":name,"email":email,"height":height,"weight":weight,"dob":dob] as [String : Any]
-        //let _ = Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).update
+        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).updateChildValues(userDic)
         
     }
     @IBAction func handleBack(_ sender: UIButton) {
@@ -52,6 +59,13 @@ class ProfileSettingVC: UIViewController {
     }
     @IBAction func handleImageChange(_ sender: UIButton) {
     }
-    
+    func setUserDetails(){
+        self.txtEmail.text = self.currentUser.email
+        self.txtDob.text = self.currentUser.dob
+        self.txtWeight.text = self.currentUser.weight
+        self.txtHeight.text = self.currentUser.height
+        self.txtName.text = self.currentUser.name
+        self.imgUser.sd_setImage(with: URL(string:self.currentUser.picture), placeholderImage: UIImage(named: "splash"))
+    }
 
 }
