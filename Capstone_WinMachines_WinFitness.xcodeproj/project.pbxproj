@@ -22,7 +22,6 @@
 		B73791A52625761F003BF61C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73791A42625761F003BF61C /* Assets.xcassets */; };
 		B73791A82625761F003BF61C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73791A62625761F003BF61C /* LaunchScreen.storyboard */; };
 		B76FB07A263163CF00B859F1 /* CompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FB079263163CF00B859F1 /* CompleteVC.swift */; };
-		B76FB0CB2631731C00B859F1 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FB0CA2631731C00B859F1 /* BlurView.swift */; };
 		B787D78126284A0100873A41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B787D78026284A0100873A41 /* GoogleService-Info.plist */; };
 		B798D9AD262F5101008713DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AC262F5100008713DC /* Constants.swift */; };
 		B798D9B0262F5E1D008713DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AF262F5E1D008713DC /* User.swift */; };
@@ -50,7 +49,6 @@
 		B73791A72625761F003BF61C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B73791A92625761F003BF61C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B76FB079263163CF00B859F1 /* CompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteVC.swift; sourceTree = "<group>"; };
-		B76FB0CA2631731C00B859F1 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		B787D78026284A0100873A41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B798D9AC262F5100008713DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B798D9AF262F5E1D008713DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Capstone_WinMachines_WinFitness/Models/User.swift; sourceTree = SOURCE_ROOT; };
@@ -160,7 +158,6 @@
 			children = (
 				B798D9B5262F7170008713DC /* NutritionTVC.swift */,
 				9188521F262F7F54008D3D39 /* Image.swift */,
-				B76FB0CA2631731C00B859F1 /* BlurView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,7 +331,6 @@
 				B737919C26257612003BF61C /* AppDelegate.swift in Sources */,
 				B737919E26257612003BF61C /* SceneDelegate.swift in Sources */,
 				91885220262F7F54008D3D39 /* Image.swift in Sources */,
-				B76FB0CB2631731C00B859F1 /* BlurView.swift in Sources */,
 				910F4041262CDBCA0047BC85 /* ReadyScreenVC.swift in Sources */,
 				B798D9B0262F5E1D008713DC /* User.swift in Sources */,
 				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
