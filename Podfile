@@ -13,5 +13,6 @@ pod 'Firebase/Auth'
 pod 'SDWebImage'
 pod 'TwitterKit'
 pod 'FBSDKLoginKit'
+pod 'SRCountdownTimer'
 pod 'NVActivityIndicatorView'
 end

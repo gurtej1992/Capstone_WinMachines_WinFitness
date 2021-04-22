@@ -7,15 +7,18 @@
 
 import UIKit
 import AVKit
+import SRCountdownTimer
 
 class WorkoutVC: UIViewController {
 
+    @IBOutlet weak var viewCountDown: SRCountdownTimer!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblUpNext: UILabel!
     @IBOutlet weak var viewPlayer: UIView!
     @IBOutlet weak var lblReps: UILabel!
     @IBOutlet weak var lblNumSets: UILabel!
     @IBOutlet weak var viewBlur: UIView!
+    @IBOutlet weak var btnNext: UIButton!
     var arrWorkouts = [Workouts]()
     var workoutCount = 0
     var player : AVPlayer!
@@ -43,6 +46,12 @@ class WorkoutVC: UIViewController {
             lblTitle.text = arrWorkouts[workoutCount].name
             lblReps.text = "10"
             lblNumSets.text = "3"
+        if workoutCount != arrWorkouts.count - 1{
+            lblUpNext.text = "Up Next : \(arrWorkouts[workoutCount + 1].name)"
+        }
+        else{
+            lblUpNext.text = "Completed"
+        }
     }
     func clearAndPlay(){
         if let player = self.player{
@@ -60,10 +69,31 @@ class WorkoutVC: UIViewController {
         
     }
     @IBAction func handleNext(_ sender: Any) {
-        workoutCount += 1
-        if workout.type != "rest"{
-            setWorkout()
-            clearAndPlay()
+        if btnNext.title(for: .normal) == "Done"{
+            performSegue(withIdentifier: Constants.segToComplete, sender: self)
+        }
+        else{
+            workoutCount += 1
+            if workoutCount == arrWorkouts.count - 1 {
+                btnNext.setTitle("Done", for: .normal)
+            }
+            if workoutCount < arrWorkouts.count{
+                setWorkout()
+                if arrWorkouts[workoutCount].type != "rest"{
+                    clearAndPlay()
+                    viewPlayer.isHidden = false
+                    viewCountDown.isHidden = true
+                }
+                else{
+                    viewPlayer.isHidden = true
+                    viewCountDown.isHidden = false
+                    viewCountDown.lineWidth = 10
+                    viewCountDown.lineColor = Constants.ThemePink
+                    viewCountDown.labelTextColor = UIColor.white
+                    viewCountDown.labelFont = UIFont(name: "AvenirNextCondensed-Medium", size: 50)
+                    viewCountDown.start(beginingValue: 35)
+                }
+            }
         }
         
     }
