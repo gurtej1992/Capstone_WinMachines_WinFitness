@@ -14,6 +14,8 @@ class NutritionVC: UIViewController {
     @IBOutlet var btnMeals: [UIButton]!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblNutrition: UITableView!
+    var usingSearch = false
+    var arrFilterMeals = [Nutritions]()
     var arrMeals = [Nutritions]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,8 @@ class NutritionVC: UIViewController {
         }
         else{
             searchBar.isHidden = true
+            usingSearch = false
+            tblNutrition.reloadData()
         }
     }
     func getNutrition(type : Meal){
@@ -41,50 +45,17 @@ class NutritionVC: UIViewController {
     }
     
     @IBAction func handleBreakfast(_ sender: UIButton) {
-        for btn in btnMeals{
-            if btn.tag != sender.tag{
-                sender.backgroundColor = Constants.ThemePink
-            }
-            else{
-                sender.backgroundColor = Constants.ThemeDarkPink
-            }
-        }
-        
         getNutrition(type: .breakfast)
         
     }
     @IBAction func handleLunch(_ sender: UIButton) {
-        for btn in btnMeals{
-            if btn.tag != sender.tag{
-                sender.backgroundColor = Constants.ThemePink
-            }
-            else{
-                sender.backgroundColor = Constants.ThemeDarkPink
-            }
-        }
         getNutrition(type: .lunch)  }
     
     
     @IBAction func handleDinner(_ sender: UIButton) {
-        for btn in btnMeals{
-            if btn.tag != sender.tag{
-                sender.backgroundColor = Constants.ThemePink
-            }
-            else{
-                sender.backgroundColor = Constants.ThemeDarkPink
-            }
-        }
         getNutrition(type: .dinner)    }
     
     @IBAction func handleSnacks(_ sender: UIButton) {
-        for btn in btnMeals{
-            if btn.tag != sender.tag{
-                sender.backgroundColor = Constants.ThemePink
-            }
-            else{
-                sender.backgroundColor = Constants.ThemeDarkPink
-            }
-        }
         getNutrition(type: .snacks)
         
     }
@@ -95,22 +66,30 @@ class NutritionVC: UIViewController {
 }
 extension NutritionVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrMeals.count
+        let meal = usingSearch ? arrFilterMeals : arrMeals
+        return meal.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! NutritionTVC
-        cell.configureCells(meal: arrMeals[indexPath.row])
+        let meal = usingSearch ? arrFilterMeals[indexPath.row] : arrMeals[indexPath.row]
+        cell.configureCells(meal: meal)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height/2
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let meal = arrMeals[indexPath.row]
+        let meal = usingSearch ? arrFilterMeals[indexPath.row] : arrMeals[indexPath.row]
         guard let url = URL(string: meal.link) else { return }
         UIApplication.shared.open(url)    }
 }
 extension NutritionVC : UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        usingSearch = true
+        arrFilterMeals.removeAll()
+        arrFilterMeals = arrMeals.filter({($0.name.contains(searchText))})
+        tblNutrition.reloadData()
+    }
     
 }

@@ -27,14 +27,14 @@ class HomeVC: UIViewController {
     let arrEquip = [["Mats"],["Mats","Dumbell","Barbell"],[],["Mats","Dumbell"],["Mats","Dumbell","Barbell"],[],["Mats","Barbell","Bench","Dumbell"]]
     var arrWorkouts = [Workouts]()
     var currentUser : User!
-    let arrMenu = ["Home","Invite Friends","Progress Pictures","Fav Workouts","Nutrition","Logout"]
+    let arrMenu = ["Home","Invite Friends","Progress Pictures","Profile Setting","Nutrition","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
         fetchUserDetails()
         fetchWorkouts()
     }
-
+    
     func prepareUI(){
         // Added BlurView to Menu
         viewContainerHeight.constant = view.frame.height
@@ -94,16 +94,33 @@ class HomeVC: UIViewController {
         else{
             lblTime.text = "TIME \(arrTime[day]) MINUTES"
             for eq in arrEquip[day]{
-                       let lbl = UILabel()
-                       lbl.text = eq
-                       lbl.textColor = .white
-                       lbl.font = UIFont(name: "DINCondensed-Bold", size: 25)
-                       stackViewEquip.addArrangedSubview(lbl)
-                   }
+                let lbl = UILabel()
+                lbl.text = eq
+                lbl.textColor = .white
+                lbl.font = UIFont(name: "DINCondensed-Bold", size: 25)
+                stackViewEquip.addArrangedSubview(lbl)
+            }
         }
         
-       
+        
     }
+    func inviteFriends(){
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let textToShare = "Check out my fitness secret WinFitness"
+        
+        if let myWebsite = URL(string: "http://itunes.apple.com/app/idXXXXXXXXX") {
+            let objectsToShare = [textToShare, myWebsite, image ?? UIImage(named: "splash")!] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            
+            activityVC.popoverPresentationController?.sourceView = self.view
+            self.present(activityVC, animated: true, completion: nil)
+        }    }
+    
     @IBAction func handleProgress(_ sender: Any) {
     }
     @IBAction func handleNutrition(_ sender: Any) {
@@ -166,13 +183,13 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            print(arrMenu[indexPath.row])
+            handleMenuClose(self)
         case 1:
-            print(arrMenu[indexPath.row])
+            inviteFriends()
         case 2:
-            print(arrMenu[indexPath.row])
+            performSegue(withIdentifier: Constants.segToProgress, sender: self)
         case 3:
-            print(arrMenu[indexPath.row])
+            performSegue(withIdentifier: Constants.segToProfile, sender: self)
         case 4:
             performSegue(withIdentifier: Constants.segToNutrition, sender: self)
         default:

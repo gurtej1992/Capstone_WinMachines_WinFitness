@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 import HealthKit
-
+import PopupDialog
 class ProfileSettingVC: UIViewController {
     
     @IBOutlet weak var viewToBlur: UIView!
@@ -20,6 +20,8 @@ class ProfileSettingVC: UIViewController {
     @IBOutlet weak var txtWeight: UITextField!
     @IBOutlet weak var txtDob: UITextField!
     @IBOutlet weak var imgUser: UIImageView!
+    var isImageUpdated = false
+    var imagePicker = UIImagePickerController()
     let store = HKHealthStore()
     var currentUser : User!
     
@@ -120,14 +122,88 @@ class ProfileSettingVC: UIViewController {
         guard let email = txtEmail.text,let name = txtName.text,let dob = txtDob.text,let height = txtHeight.text,let weight = txtWeight.text else {
             return
         }
-        let userDic = ["name":name,"email":email,"height":height,"weight":weight,"dob":dob] as [String : Any]
-        Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).updateChildValues(userDic)
-        
+        if isImageUpdated{
+            if let data = imgUser.image?.jpegData(compressionQuality: 0.3){
+                let storageRef = Storage.storage().reference()
+                let riversRef = storageRef.child("images/\(UUID().uuidString).jpg")
+
+                // Upload the file to the path "images/rivers.jpg"
+                let _ = riversRef.putData(data, metadata: nil) { (metadata, error) in
+                  guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    return
+                  }
+                  // Metadata contains file metadata such as size, content-type.
+                  let _ = metadata.size
+                  // You can also access to download URL after upload.
+                  riversRef.downloadURL { (url, error) in
+                    guard let downloadURL = url else {
+                      return
+                    }
+                    let userDic = ["name":name,"email":email,"height":height,"weight":weight,"dob":dob,"picture":downloadURL.absoluteString] as [String : Any]
+                    Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).updateChildValues(userDic)
+                    self.navigationController?.popViewController(animated: true)
+                  }
+                }
+            }
+        }
+        else{
+            let userDic = ["name":name,"email":email,"height":height,"weight":weight,"dob":dob] as [String : Any]
+            Database.database().reference().child("Users").child(Auth.auth().currentUser!.uid).updateChildValues(userDic)
+        }
+        let title = "Success"
+        let message = "Your profile has been successfully updated."
+        let popup = PopupDialog(title: title, message: message)
+        let buttonOne = CancelButton(title: "Okay") {
+            print("You canceled the car dialog.")
+        }
+        popup.addButton(buttonOne)
+        self.present(popup, animated: true, completion: nil)
     }
     @IBAction func handleBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func handleImageChange(_ sender: UIButton) {
+        // create an actionSheet
+        let actionSheetController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+
+            let cameraAction: UIAlertAction = UIAlertAction(title: "Image From Camera", style: .default) { action -> Void in
+                self.handleCamera()
+            }
+
+            let mediaAction: UIAlertAction = UIAlertAction(title: "Image From Gallary", style: .default) { action -> Void in
+
+                self.handlePhotoLibrary()
+            }
+        let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in }
+            actionSheetController.addAction(cameraAction)
+            actionSheetController.addAction(mediaAction)
+        actionSheetController.addAction(cancelAction)
+        self.present(actionSheetController, animated: true, completion: nil)
+    }
+    func handleCamera()
+    {
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            self.present(imagePicker, animated: true)
+        }
+        else{
+            print("Camera not available0")
+        }
+       
+
+    }
+
+    func handlePhotoLibrary()
+    {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        self.present(imagePicker, animated: true)
+
     }
     func setUserDetails(){
         self.txtEmail.text = self.currentUser.email
@@ -136,6 +212,25 @@ class ProfileSettingVC: UIViewController {
         self.txtHeight.text = self.currentUser.height
         self.txtName.text = self.currentUser.name
         self.imgUser.sd_setImage(with: URL(string:self.currentUser.picture), placeholderImage: UIImage(named: "splash"))
+    }
+    
+}
+extension ProfileSettingVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.editedImage] as? UIImage {
+            imgUser.image = image
+            
+        }
+        else if let image = info[.originalImage] as? UIImage {
+            imgUser.image = image
+        } else {
+            print("Other source")
+        }
+        isImageUpdated = true
+        picker.dismiss(animated: true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
 }
