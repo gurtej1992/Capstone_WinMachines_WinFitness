@@ -11,11 +11,21 @@ import Firebase
 
 class NutritionVC: UIViewController {
     
+    @IBOutlet var btnMeals: [UIButton]!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tblNutrition: UITableView!
     var arrMeals = [Nutritions]()
     override func viewDidLoad() {
         super.viewDidLoad()
         getNutrition(type: .breakfast)
+    }
+    @IBAction func handleSearch(_ sender: Any) {
+        if searchBar.isHidden{
+            searchBar.isHidden = false
+        }
+        else{
+            searchBar.isHidden = true
+        }
     }
     func getNutrition(type : Meal){
         arrMeals.removeAll()
@@ -31,26 +41,56 @@ class NutritionVC: UIViewController {
     }
     
     @IBAction func handleBreakfast(_ sender: UIButton) {
+        for btn in btnMeals{
+            if btn.tag != sender.tag{
+                sender.backgroundColor = Constants.ThemePink
+            }
+            else{
+                sender.backgroundColor = Constants.ThemeDarkPink
+            }
+        }
+        
         getNutrition(type: .breakfast)
         
     }
     @IBAction func handleLunch(_ sender: UIButton) {
+        for btn in btnMeals{
+            if btn.tag != sender.tag{
+                sender.backgroundColor = Constants.ThemePink
+            }
+            else{
+                sender.backgroundColor = Constants.ThemeDarkPink
+            }
+        }
         getNutrition(type: .lunch)  }
     
     
     @IBAction func handleDinner(_ sender: UIButton) {
+        for btn in btnMeals{
+            if btn.tag != sender.tag{
+                sender.backgroundColor = Constants.ThemePink
+            }
+            else{
+                sender.backgroundColor = Constants.ThemeDarkPink
+            }
+        }
         getNutrition(type: .dinner)    }
     
     @IBAction func handleSnacks(_ sender: UIButton) {
+        for btn in btnMeals{
+            if btn.tag != sender.tag{
+                sender.backgroundColor = Constants.ThemePink
+            }
+            else{
+                sender.backgroundColor = Constants.ThemeDarkPink
+            }
+        }
         getNutrition(type: .snacks)
         
     }
     
     @IBAction func handleBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-    }
-
-    @IBAction func handleSearch(_ sender: UIButton) {
     }
 }
 extension NutritionVC : UITableViewDelegate,UITableViewDataSource{
@@ -70,4 +110,7 @@ extension NutritionVC : UITableViewDelegate,UITableViewDataSource{
         let meal = arrMeals[indexPath.row]
         guard let url = URL(string: meal.link) else { return }
         UIApplication.shared.open(url)    }
+}
+extension NutritionVC : UISearchBarDelegate{
+    
 }

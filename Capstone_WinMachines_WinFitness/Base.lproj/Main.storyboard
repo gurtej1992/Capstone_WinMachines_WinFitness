@@ -342,14 +342,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZVI-Tr-oBJ">
-                                        <rect key="frame" x="30" y="10.666666666666664" width="18" height="29"/>
+                                        <rect key="frame" x="29.999999999999996" y="15" width="12.333333333333332" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ZVI-Tr-oBJ" secondAttribute="height" multiplier="18:29" id="4qf-jw-B1B"/>
+                                            <constraint firstAttribute="height" constant="20" id="eSv-nk-APb"/>
+                                        </constraints>
                                         <state key="normal" backgroundImage="back"/>
                                         <connections>
                                             <action selector="handleBack:" destination="d6R-yS-fui" eventType="touchUpInside" id="NUu-yA-wXF"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeK-lM-NWV">
-                                        <rect key="frame" x="167.33333333333334" y="10" width="79.666666666666657" height="30"/>
+                                        <rect key="frame" x="167.33333333333334" y="15" width="79.666666666666657" height="30"/>
                                         <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -359,7 +363,7 @@
                                         <color key="tintColor" systemColor="systemGroupedBackgroundColor"/>
                                         <state key="normal" image="magnifyingglass" catalog="system"/>
                                         <connections>
-                                            <action selector="handleSearch:" destination="d6R-yS-fui" eventType="touchUpInside" id="8wq-qb-7qL"/>
+                                            <action selector="handleSearch:" destination="d6R-yS-fui" eventType="touchUpInside" id="t1r-2M-fpk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -371,80 +375,100 @@
                                     <constraint firstItem="ZVI-Tr-oBJ" firstAttribute="leading" secondItem="u0n-PT-cds" secondAttribute="leading" constant="30" id="MtK-mp-4Ha"/>
                                     <constraint firstAttribute="height" constant="50" id="aKB-hL-JA2"/>
                                     <constraint firstItem="BeK-lM-NWV" firstAttribute="centerX" secondItem="u0n-PT-cds" secondAttribute="centerX" id="jRH-PT-eVB"/>
-                                    <constraint firstItem="BeK-lM-NWV" firstAttribute="centerY" secondItem="u0n-PT-cds" secondAttribute="centerY" id="xsb-Xe-kIS"/>
+                                    <constraint firstItem="BeK-lM-NWV" firstAttribute="centerY" secondItem="u0n-PT-cds" secondAttribute="centerY" constant="5" id="xsb-Xe-kIS"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="n97-V9-cnB">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NFu-1Z-BxP">
                                 <rect key="frame" x="0.0" y="50" width="414" height="60"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-cz-0ej">
-                                        <rect key="frame" x="0.0" y="0.0" width="88.666666666666671" height="60"/>
-                                        <color key="backgroundColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
-                                        <state key="normal" title="BREAKFAST">
-                                            <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
-                                        </state>
+                                    <searchBar hidden="YES" contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="QQu-AG-fXa">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits"/>
                                         <connections>
-                                            <action selector="handleBreakfast:" destination="d6R-yS-fui" eventType="touchUpInside" id="yWy-ma-HGl"/>
+                                            <outlet property="delegate" destination="d6R-yS-fui" id="aRz-0G-q7R"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuB-P9-pbE">
-                                        <rect key="frame" x="108.66666666666669" y="0.0" width="88.333333333333314" height="60"/>
-                                        <color key="backgroundColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
-                                        <state key="normal" title="LUNCH">
-                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="handleLunch:" destination="d6R-yS-fui" eventType="touchUpInside" id="eCT-DC-xqv"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7Y-av-mAn">
-                                        <rect key="frame" x="216.99999999999997" y="0.0" width="88.666666666666657" height="60"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
-                                        <state key="normal" title="DINNER">
-                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="handleDinner:" destination="d6R-yS-fui" eventType="touchUpInside" id="I0O-mj-awd"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXk-31-RsY">
-                                        <rect key="frame" x="325.66666666666669" y="0.0" width="88.333333333333314" height="60"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
-                                        <state key="normal" title="SNACKS">
-                                            <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="handleSnacks:" destination="d6R-yS-fui" eventType="touchUpInside" id="MFt-fh-TgR"/>
-                                        </connections>
-                                    </button>
+                                    </searchBar>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="n97-V9-cnB">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CiB-cz-0ej">
+                                                <rect key="frame" x="0.0" y="0.0" width="103.66666666666667" height="60"/>
+                                                <color key="backgroundColor" name="ThemeDarkPink"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
+                                                <state key="normal" title="BREAKFAST">
+                                                    <color key="titleColor" systemColor="tertiarySystemBackgroundColor"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleBreakfast:" destination="d6R-yS-fui" eventType="touchUpInside" id="yWy-ma-HGl"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuB-P9-pbE">
+                                                <rect key="frame" x="103.66666666666669" y="0.0" width="103.33333333333331" height="60"/>
+                                                <color key="backgroundColor" name="ThemePink"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
+                                                <state key="normal" title="LUNCH">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleLunch:" destination="d6R-yS-fui" eventType="touchUpInside" id="eCT-DC-xqv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7Y-av-mAn">
+                                                <rect key="frame" x="206.99999999999997" y="0.0" width="103.66666666666666" height="60"/>
+                                                <color key="backgroundColor" name="ThemePink"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
+                                                <state key="normal" title="DINNER">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleDinner:" destination="d6R-yS-fui" eventType="touchUpInside" id="I0O-mj-awd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DXk-31-RsY">
+                                                <rect key="frame" x="310.66666666666669" y="0.0" width="103.33333333333331" height="60"/>
+                                                <color key="backgroundColor" name="ThemePink"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="15"/>
+                                                <state key="normal" title="SNACKS">
+                                                    <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleSnacks:" destination="d6R-yS-fui" eventType="touchUpInside" id="MFt-fh-TgR"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="sTn-cp-nNu"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.82392108580000001" green="0.081161699670000004" blue="0.55352233630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="sTn-cp-nNu"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Nvu-XD-eso"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Nvu-XD-eso" firstAttribute="trailing" secondItem="n97-V9-cnB" secondAttribute="trailing" id="4cp-IE-2MT"/>
+                            <constraint firstItem="NFu-1Z-BxP" firstAttribute="top" secondItem="u0n-PT-cds" secondAttribute="bottom" id="3Rc-2R-2FR"/>
                             <constraint firstItem="Nvu-XD-eso" firstAttribute="bottom" secondItem="bqq-5V-EEe" secondAttribute="bottom" id="Cry-Dt-XEh"/>
-                            <constraint firstItem="n97-V9-cnB" firstAttribute="top" secondItem="u0n-PT-cds" secondAttribute="bottom" id="Cz3-uv-ESL"/>
                             <constraint firstItem="Nvu-XD-eso" firstAttribute="trailing" secondItem="u0n-PT-cds" secondAttribute="trailing" id="DcW-gz-jbh"/>
-                            <constraint firstItem="n97-V9-cnB" firstAttribute="leading" secondItem="Nvu-XD-eso" secondAttribute="leading" id="KFn-XV-FYm"/>
+                            <constraint firstItem="bqq-5V-EEe" firstAttribute="top" secondItem="NFu-1Z-BxP" secondAttribute="bottom" id="JEC-Qr-J2T"/>
                             <constraint firstItem="bqq-5V-EEe" firstAttribute="leading" secondItem="Nvu-XD-eso" secondAttribute="leading" id="Sdw-L8-AWQ"/>
+                            <constraint firstItem="Nvu-XD-eso" firstAttribute="trailing" secondItem="NFu-1Z-BxP" secondAttribute="trailing" id="YS0-Ya-jOy"/>
                             <constraint firstItem="u0n-PT-cds" firstAttribute="leading" secondItem="Nvu-XD-eso" secondAttribute="leading" id="c4g-jw-gfo"/>
-                            <constraint firstItem="bqq-5V-EEe" firstAttribute="top" secondItem="n97-V9-cnB" secondAttribute="bottom" id="chl-Kd-CZc"/>
                             <constraint firstItem="u0n-PT-cds" firstAttribute="top" secondItem="Nvu-XD-eso" secondAttribute="top" id="k4T-NQ-rfG"/>
                             <constraint firstItem="Nvu-XD-eso" firstAttribute="trailing" secondItem="bqq-5V-EEe" secondAttribute="trailing" id="mRf-oi-rrc"/>
+                            <constraint firstItem="NFu-1Z-BxP" firstAttribute="leading" secondItem="Nvu-XD-eso" secondAttribute="leading" id="oZ6-oF-ZZa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T6r-Lq-FPc"/>
                     <connections>
+                        <outlet property="searchBar" destination="QQu-AG-fXa" id="onU-Ns-o1I"/>
                         <outlet property="tblNutrition" destination="bqq-5V-EEe" id="9iC-Ay-Vr3"/>
+                        <outletCollection property="btnMeals" destination="k7Y-av-mAn" collectionClass="NSMutableArray" id="qcw-wD-Hfg"/>
+                        <outletCollection property="btnMeals" destination="tuB-P9-pbE" collectionClass="NSMutableArray" id="Nqd-wF-nxQ"/>
+                        <outletCollection property="btnMeals" destination="CiB-cz-0ej" collectionClass="NSMutableArray" id="Db8-9Y-RbC"/>
+                        <outletCollection property="btnMeals" destination="DXk-31-RsY" collectionClass="NSMutableArray" id="hiE-Co-bFI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xGc-ri-PwX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1484,6 +1508,9 @@
         <image name="splash" width="375" height="667"/>
         <image name="stopWatch" width="27" height="29"/>
         <image name="welcomeBg" width="375" height="667"/>
+        <namedColor name="ThemeDarkPink">
+            <color red="0.7803921568627451" green="0.031372549019607843" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ThemePink">
             <color red="1" green="0.043137254901960784" blue="0.70588235294117652" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

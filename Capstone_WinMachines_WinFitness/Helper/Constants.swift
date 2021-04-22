@@ -21,4 +21,5 @@ class Constants: NSObject {
     static let HomeVC = "HomeVC"
     static let WorkoutVC = "WorkoutVC"
     static let ThemePink = UIColor(named: "ThemePink")!
+    static let ThemeDarkPink = UIColor(named: "ThemeDarkPink")!
 }
