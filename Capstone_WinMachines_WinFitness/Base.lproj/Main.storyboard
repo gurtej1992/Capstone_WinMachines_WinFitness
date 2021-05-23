@@ -110,14 +110,45 @@
                                         <color key="textColor" systemColor="systemGrayColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tII-ca-pnb">
+                                        <rect key="frame" x="80" y="277" width="254" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYx-Ai-Ptg">
+                                                <rect key="frame" x="0.0" y="0.0" width="122" height="50"/>
+                                                <color key="backgroundColor" red="0.28235294119999998" green="0.38431372549999998" blue="0.63921568630000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="rv8-hq-iUj"/>
+                                                </constraints>
+                                                <state key="normal" title="Login with FB">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleFBLogin:" destination="ak9-s5-b0b" eventType="touchUpInside" id="k2t-Tn-xFk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rW4-r1-3Ob">
+                                                <rect key="frame" x="132" y="0.0" width="122" height="50"/>
+                                                <color key="backgroundColor" red="0.0" green="0.67450980390000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="3Dr-Oy-BdO"/>
+                                                </constraints>
+                                                <state key="normal" title="Login with Twitter">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="handleTwitterLogin:" destination="ak9-s5-b0b" eventType="touchUpInside" id="ORQ-mJ-iAc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iK-aS-8Ey">
-                                        <rect key="frame" x="50" y="273" width="314" height="30"/>
+                                        <rect key="frame" x="50" y="343" width="314" height="30"/>
                                         <connections>
                                             <action selector="handleNotRegistered:" destination="ak9-s5-b0b" eventType="touchUpInside" id="mTN-Bi-egb"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mga-PW-wak">
-                                        <rect key="frame" x="50" y="277" width="314" height="22"/>
+                                        <rect key="frame" x="50" y="347" width="314" height="22"/>
                                         <attributedString key="attributedText">
                                             <fragment content="No registered yet?">
                                                 <attributes>
@@ -144,39 +175,40 @@
                                     <constraint firstAttribute="trailing" secondItem="Mga-PW-wak" secondAttribute="trailing" constant="50" id="3u6-Qg-01T"/>
                                     <constraint firstItem="Mga-PW-wak" firstAttribute="leading" secondItem="MhR-54-lgt" secondAttribute="leading" constant="50" id="6na-hx-iZF"/>
                                     <constraint firstItem="xQ9-G7-NmI" firstAttribute="leading" secondItem="MhR-54-lgt" secondAttribute="leading" constant="50" id="APQ-g6-NYj"/>
-                                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Mga-PW-wak" secondAttribute="bottom" constant="201" id="GKY-LQ-tQV"/>
                                     <constraint firstItem="6iK-aS-8Ey" firstAttribute="width" secondItem="Mga-PW-wak" secondAttribute="width" id="KQy-zJ-eKp"/>
+                                    <constraint firstItem="tII-ca-pnb" firstAttribute="centerX" secondItem="AdV-MP-YYD" secondAttribute="centerX" id="S8X-an-6wa"/>
                                     <constraint firstItem="egi-tz-VoZ" firstAttribute="centerX" secondItem="xQ9-G7-NmI" secondAttribute="centerX" id="YDb-K0-nbt"/>
                                     <constraint firstAttribute="height" id="aD6-2A-ljx"/>
+                                    <constraint firstItem="Mga-PW-wak" firstAttribute="top" secondItem="tII-ca-pnb" secondAttribute="bottom" constant="20" id="cfK-Et-cyO"/>
                                     <constraint firstItem="6iK-aS-8Ey" firstAttribute="centerY" secondItem="Mga-PW-wak" secondAttribute="centerY" id="dyV-dI-FPk"/>
                                     <constraint firstItem="6iK-aS-8Ey" firstAttribute="centerX" secondItem="Mga-PW-wak" secondAttribute="centerX" id="gNg-85-uQv"/>
                                     <constraint firstItem="xQ9-G7-NmI" firstAttribute="top" secondItem="MhR-54-lgt" secondAttribute="top" constant="30" id="gwB-Jd-Jiz"/>
-                                    <constraint firstItem="Mga-PW-wak" firstAttribute="top" secondItem="egi-tz-VoZ" secondAttribute="bottom" constant="20" id="mvL-yq-feu"/>
                                     <constraint firstAttribute="trailing" secondItem="xQ9-G7-NmI" secondAttribute="trailing" constant="50" id="qHl-Yw-trE"/>
                                     <constraint firstItem="egi-tz-VoZ" firstAttribute="top" secondItem="xQ9-G7-NmI" secondAttribute="bottom" constant="20" id="rkV-fb-OQK"/>
+                                    <constraint firstItem="tII-ca-pnb" firstAttribute="top" secondItem="egi-tz-VoZ" secondAttribute="bottom" constant="20" id="sFf-sj-jZW"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="WTS-EA-IqS">
-                                <rect key="frame" x="50" y="50" width="314" height="452"/>
+                                <rect key="frame" x="50" y="50" width="314" height="318"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p1j-ib-5gu">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
-                                        <fontDescription key="fontDescription" name="AvenirNextCondensed-Heavy" family="Avenir Next Condensed" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vms-rR-EVg">
                                         <rect key="frame" x="0.0" y="67" width="314" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IGR-tI-5Q1">
                                         <rect key="frame" x="0.0" y="134" width="314" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pwe-O5-gRl">
                                         <rect key="frame" x="0.0" y="201" width="314" height="50"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8o4-DI-ebA">
@@ -193,37 +225,6 @@
                                             <action selector="handleSignUp:" destination="ak9-s5-b0b" eventType="touchUpInside" id="cP0-bs-fBU"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNh-lX-vGV">
-                                        <rect key="frame" x="0.0" y="335" width="314" height="50"/>
-                                        <fontDescription key="fontDescription" name="DINCondensed-Bold" family="DIN Condensed" pointSize="17"/>
-                                        <color key="textColor" systemColor="systemBackgroundColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XRB-eM-aCn">
-                                        <rect key="frame" x="0.0" y="402" width="314" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSl-e2-0zN">
-                                                <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
-                                                <color key="backgroundColor" red="0.28235294117647058" green="0.38431372549019605" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Login with FB">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="handleFBLogin:" destination="ak9-s5-b0b" eventType="touchUpInside" id="pdx-yX-UsK"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naf-4N-OyT">
-                                                <rect key="frame" x="162" y="0.0" width="152" height="50"/>
-                                                <color key="backgroundColor" red="0.0" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Login with Twitter">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="handleTwitterLogin:" destination="ak9-s5-b0b" eventType="touchUpInside" id="7Ct-KI-Va2"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcX-hk-i4o">
@@ -1517,6 +1518,7 @@
                     <navigationItem key="navigationItem" id="nbK-vh-NAu"/>
                     <size key="freeformSize" width="414" height="1300"/>
                     <connections>
+                        <outlet property="btnWorkout" destination="Xa2-Bv-Mqx" id="Iek-dN-MbF"/>
                         <outlet property="imgProfile" destination="C4j-Ti-X7I" id="mKV-4D-fSd"/>
                         <outlet property="lblTime" destination="czg-mL-ZHL" id="1Mw-Ql-BC8"/>
                         <outlet property="lblUserEmail" destination="lDP-pf-q1w" id="gXA-GD-QV1"/>

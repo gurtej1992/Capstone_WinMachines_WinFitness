@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import SDWebImage
 class HomeVC: UIViewController {
+    @IBOutlet weak var btnWorkout: UIButton!
     @IBOutlet var btnWeekDays: [UIButton]!
     @IBOutlet weak var tblMenu: UITableView!
     @IBOutlet weak var imgProfile: UIImageView!
@@ -90,8 +91,10 @@ class HomeVC: UIViewController {
         lblWorkoutTitle.text = arrPlan[day]
         if arrPlan[day] == "Rest"{
             lblTime.text = "TIME 1 DAY"
+            btnWorkout.isHidden = true
         }
         else{
+            btnWorkout.isHidden = false
             lblTime.text = "TIME \(arrTime[day]) MINUTES"
             for eq in arrEquip[day]{
                 let lbl = UILabel()
@@ -122,6 +125,7 @@ class HomeVC: UIViewController {
         }    }
     
     @IBAction func handleProgress(_ sender: Any) {
+        performSegue(withIdentifier: Constants.segToProgress, sender: self)
     }
     @IBAction func handleNutrition(_ sender: Any) {
     }

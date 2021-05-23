@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 import TwitterKit
+import PopupDialog
 
 
 class LoginVC: UIViewController {
@@ -38,7 +39,7 @@ class LoginVC: UIViewController {
     func prepareUI(){
         if comeForLogin{
             stackViewSignup.isHidden = true
-            viewLoginHeight.constant = (view.frame.height * 40) / 100
+            viewLoginHeight.constant = (view.frame.height * 50) / 100
             viewLogin.isHidden = false
         }
         else{
@@ -52,12 +53,21 @@ class LoginVC: UIViewController {
         let userDic = ["email":email,"name":name,"day":"1","picture":picture ?? ""] as Dic
         ref.child("Users").child(uid).setValue(userDic) { (error, _) in
             if error != nil{
-                print(error?.localizedDescription)
+                self.showAlert(message: error!.localizedDescription)
                 return
             }
             self.performSegue(withIdentifier: Constants.segToHome, sender: self)
         }
 
+    }
+    func showAlert(message:String){
+        let title = "Error"
+        let popup = PopupDialog(title: title, message: message)
+        let buttonOne = CancelButton(title: "Okay") {
+            print("You canceled the car dialog.")
+        }
+        popup.addButton(buttonOne)
+        self.present(popup, animated: true, completion: nil)
     }
     @IBAction func handleNotRegistered(_ sender: Any) {
         comeForLogin = false
@@ -69,20 +79,20 @@ class LoginVC: UIViewController {
     @IBAction func handleTwitterLogin(_ sender: Any) {
         TWTRTwitter.sharedInstance().logIn { (session, err) in
             if err != nil {
-                print(err?.localizedDescription ?? "oops")
+                self.showAlert(message: err!.localizedDescription)
                 return
             }
             let twitterClient = TWTRAPIClient(userID: session?.userID)
             twitterClient.loadUser(withID: (session?.userID)!) { (user, err) in
                 if err != nil {
-                    print(err?.localizedDescription ?? "oops")
+                    self.showAlert(message: err!.localizedDescription)
                     return
                 }
                 let credentials = TwitterAuthProvider.credential(withToken: (session?.authToken)!, secret: (session?.authTokenSecret)!)
                 Auth.auth().signIn(with: credentials) { [weak self](auth, error) in
                     guard let strongSelf = self else { return }
                     if error != nil{
-                        print(error?.localizedDescription ?? "")
+                        strongSelf.showAlert(message: error!.localizedDescription)
                         return
                     }
                     strongSelf.pushUserInfoInFirebase(email: user!.screenName, name: user!.name,picture: user?.profileImageLargeURL, uid: auth!.user.uid)
@@ -97,7 +107,7 @@ class LoginVC: UIViewController {
         Auth.auth().signIn(withEmail: email, password: pass) { [weak self] auth, error in
             guard let strongSelf = self else { return }
             if error != nil{
-                print(error?.localizedDescription ?? "")
+                strongSelf.showAlert(message: error!.localizedDescription)
                 return
             }
             strongSelf.performSegue(withIdentifier: Constants.segToHome, sender: strongSelf)
@@ -112,14 +122,14 @@ class LoginVC: UIViewController {
             Auth.auth().createUser(withEmail: email, password: pass) { [weak self](auth, error) in
                 guard let strongSelf = self else { return }
                 if error != nil{
-                    print(error?.localizedDescription ?? "")
+                    strongSelf.showAlert(message: error!.localizedDescription)
                     return
                 }
                 strongSelf.pushUserInfoInFirebase(email: email, name: name, uid: auth!.user.uid)
             }
         }
         else{
-            print("Password not matched")
+            self.showAlert(message: "Password not matched!!")
         }
     }
     @IBAction func handleFBLogin(_ sender: Any) {
