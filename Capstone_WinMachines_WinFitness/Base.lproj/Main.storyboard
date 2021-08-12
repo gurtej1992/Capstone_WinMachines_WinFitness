@@ -919,6 +919,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SCK-tg-WuG" id="wmS-Lt-eyA"/>
+                                    <outlet property="delegate" destination="SCK-tg-WuG" id="Dxo-UN-VcY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RNb-6Q-LiI"/>

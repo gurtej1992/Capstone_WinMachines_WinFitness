@@ -21,6 +21,12 @@ struct Nutritions {
     var link :String
     var name : String
 }
+struct Community {
+    var uid :String
+    var type :String
+    var content : String
+    var date : String
+}
 struct Workouts {
     var video :String
     var name :String
@@ -33,4 +39,8 @@ enum Meal : String{
     case lunch = "Lunch"
     case dinner = "Dinner"
     case snacks = "Snack"
+}
+enum PostType : String{
+    case text = "text"
+    case image = "image"
 }
