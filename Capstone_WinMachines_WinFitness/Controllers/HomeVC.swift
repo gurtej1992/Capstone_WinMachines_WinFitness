@@ -84,8 +84,8 @@ class HomeVC: UIViewController {
         }
     }
     func setWorkout(day : Int){
-        for view in stackViewEquip.subviews{
-            stackViewEquip.removeArrangedSubview(view)
+        for (index,view) in stackViewEquip.subviews.enumerated(){
+            stackViewEquip.arrangedSubviews[index].removeFromSuperview()
         }
         //let workout = arrWorkouts[day]
         lblWorkoutTitle.text = arrPlan[day]
@@ -197,7 +197,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         case 4:
             performSegue(withIdentifier: Constants.segToNutrition, sender: self)
         case 5:
-            print("Community")
+            performSegue(withIdentifier: Constants.segToCommunity, sender: self)
         default:
             if let _ = Auth.auth().currentUser{
                 do{

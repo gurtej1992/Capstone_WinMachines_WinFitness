@@ -16,6 +16,7 @@ class Constants: NSObject {
     static let segToSignup = "toSignup"
     static let segToHome = "toHome"
     static let segToNutrition = "toNutrition"
+    static let segToCommunity = "toCommunity"
     static let segToComplete = "toComplete"
     static let segToProfile = "toProfile"
     static let segToProgress = "toProgress"

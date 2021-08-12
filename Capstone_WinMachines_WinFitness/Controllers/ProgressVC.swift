@@ -7,6 +7,8 @@
 
 import UIKit
 import PopupDialog
+import FirebaseAuth
+import FirebaseDatabase
 
 class ProgressVC: UIViewController {
     
@@ -25,7 +27,14 @@ class ProgressVC: UIViewController {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         viewToBlur.addSubview(blurEffectView)
     }
+    func post() {
+        if let uid = Auth.auth().currentUser?.uid{
+            let post = ["uid":uid,"type":PostType.image.rawValue, "content": "https://i.pinimg.com/originals/5d/63/f5/5d63f5749c3f609f3b33e6ade2ab1152.jpg", "date": "\(Date().timeIntervalSince1970)"] as [String:Any]
+            Database.database().reference().child("Community").childByAutoId().setValue(post)
+        }
+    }
     @IBAction func handleDone(_ sender: Any) {
+        post()
         let bottomImage = imgBefore.image
         let topImage = imgAfter.image
 

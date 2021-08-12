@@ -29,6 +29,7 @@
 		B798D9AD262F5101008713DC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AC262F5100008713DC /* Constants.swift */; };
 		B798D9B0262F5E1D008713DC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9AF262F5E1D008713DC /* User.swift */; };
 		B798D9B6262F7171008713DC /* NutritionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798D9B5262F7170008713DC /* NutritionTVC.swift */; };
+		B79B327D26C59EB80062F022 /* CommentTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B327C26C59EB80062F022 /* CommentTV.swift */; };
 		B7C45611262E2361004B8F53 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C45610262E2361004B8F53 /* HomeVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		B798D9AC262F5100008713DC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B798D9AF262F5E1D008713DC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = User.swift; path = Capstone_WinMachines_WinFitness/Models/User.swift; sourceTree = SOURCE_ROOT; };
 		B798D9B5262F7170008713DC /* NutritionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTVC.swift; sourceTree = "<group>"; };
+		B79B327C26C59EB80062F022 /* CommentTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTV.swift; sourceTree = "<group>"; };
 		B7C45610262E2361004B8F53 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,7 @@
 				91A55B2F2628D4A20060304C /* NutritionVC.swift */,
 				B76FB079263163CF00B859F1 /* CompleteVC.swift */,
 				B785319C26C3077300152D31 /* CommunityVC.swift */,
+				B79B327C26C59EB80062F022 /* CommentTV.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				B798D9B0262F5E1D008713DC /* User.swift in Sources */,
 				91B783E92627740D00D003BB /* WelcomeVC.swift in Sources */,
 				B798D9B6262F7171008713DC /* NutritionTVC.swift in Sources */,
+				B79B327D26C59EB80062F022 /* CommentTV.swift in Sources */,
 				910F404B262CEF850047BC85 /* WorkoutVC.swift in Sources */,
 				91A55B302628D4A20060304C /* NutritionVC.swift in Sources */,
 			);
