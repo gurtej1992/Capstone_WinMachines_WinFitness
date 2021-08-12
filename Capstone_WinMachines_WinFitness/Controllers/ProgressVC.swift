@@ -29,7 +29,7 @@ class ProgressVC: UIViewController {
     }
     func post() {
         if let uid = Auth.auth().currentUser?.uid{
-            let post = ["uid":uid,"type":PostType.image.rawValue, "content": "https://i.pinimg.com/originals/5d/63/f5/5d63f5749c3f609f3b33e6ade2ab1152.jpg", "date": "\(Date().timeIntervalSince1970)"] as [String:Any]
+            let post = ["uid":uid,"type":PostType.image.rawValue, "content": "https://media.istockphoto.com/photos/feeling-fine-and-looking-great-picture-id521787663?k=6&m=521787663&s=612x612&w=0&h=c3QRc6zt8EY5-WVB1bOre6wz7-_Ov7pyXu_Km0f6sJw=", "date": "\(Date().timeIntervalSince1970)"] as [String:Any]
             Database.database().reference().child("Community").childByAutoId().setValue(post)
         }
     }

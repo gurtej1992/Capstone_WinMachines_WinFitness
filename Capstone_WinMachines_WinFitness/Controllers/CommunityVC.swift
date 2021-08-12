@@ -51,12 +51,18 @@ class CommunityVC: UIViewController {
     }
     func post() {
         if let uid = Auth.auth().currentUser?.uid{
-            let post = ["uid":uid,"type":PostType.image.rawValue, "content": "https://i2-prod.mirror.co.uk/incoming/article11291979.ece/ALTERNATES/s615b/PAY-Binging-To-Bodybuilding.jpg", "date": "\(Date().timeIntervalSince1970)"] as [String:Any]
+            let post = ["uid":uid,"type":PostType.image.rawValue, "content": "https://media.istockphoto.com/photos/feeling-fine-and-looking-great-picture-id521787663?k=6&m=521787663&s=612x612&w=0&h=c3QRc6zt8EY5-WVB1bOre6wz7-_Ov7pyXu_Km0f6sJw=", "date": "\(Date().timeIntervalSince1970)"] as [String:Any]
             Database.database().reference().child("Community").childByAutoId().setValue(post)
         }
     }
     @IBAction func handleBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.segToComments {
+                let vc = segue.destination as! CommentTV
+            vc.arrUsers = arrUsers
+            }
     }
 }
 extension CommunityVC  : UITableViewDelegate, UITableViewDataSource{

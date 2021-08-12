@@ -84,8 +84,8 @@ class HomeVC: UIViewController {
         }
     }
     func setWorkout(day : Int){
-        for (index,view) in stackViewEquip.subviews.enumerated(){
-            stackViewEquip.arrangedSubviews[index].removeFromSuperview()
+        for (_,view) in stackViewEquip.subviews.enumerated(){
+            view.removeFromSuperview()
         }
         //let workout = arrWorkouts[day]
         lblWorkoutTitle.text = arrPlan[day]
